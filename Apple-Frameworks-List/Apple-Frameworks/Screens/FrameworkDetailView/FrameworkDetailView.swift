@@ -13,9 +13,7 @@ struct FrameworkDetailView: View {
     let framework: Framework
     
     var body: some View {
-        VStack {            
-            Spacer()
-            
+        VStack {
             FrameworkTitleView(framework: framework)
             
             Text(framework.description)
