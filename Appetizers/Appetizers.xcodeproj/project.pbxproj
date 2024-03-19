@@ -20,6 +20,7 @@
 		9146121D2BA8282F00542FE4 /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146121C2BA8282F00542FE4 /* APError.swift */; };
 		9146121F2BA92D9B00542FE4 /* AppetizerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146121E2BA92D9B00542FE4 /* AppetizerListViewModel.swift */; };
 		914612222BA9313500542FE4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612212BA9313500542FE4 /* Alert.swift */; };
+		914612242BA935B000542FE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612232BA935B000542FE4 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		9146121C2BA8282F00542FE4 /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
 		9146121E2BA92D9B00542FE4 /* AppetizerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListViewModel.swift; sourceTree = "<group>"; };
 		914612212BA9313500542FE4 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		914612232BA935B000542FE4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				914612182BA8230E00542FE4 /* AppetizerListCell.swift */,
 				9146121A2BA826D900542FE4 /* NetworkManager.swift */,
 				9146121C2BA8282F00542FE4 /* APError.swift */,
+				914612232BA935B000542FE4 /* LoadingView.swift */,
 			);
 			path = Appetizers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				914612192BA8230E00542FE4 /* AppetizerListCell.swift in Sources */,
 				9146121F2BA92D9B00542FE4 /* AppetizerListViewModel.swift in Sources */,
 				914612132BA7DB3F00542FE4 /* AccountView.swift in Sources */,
+				914612242BA935B000542FE4 /* LoadingView.swift in Sources */,
 				914612052BA7DA7B00542FE4 /* AppetizerTabView.swift in Sources */,
 				9146121B2BA826D900542FE4 /* NetworkManager.swift in Sources */,
 				914612032BA7DA7B00542FE4 /* AppetizersApp.swift in Sources */,
