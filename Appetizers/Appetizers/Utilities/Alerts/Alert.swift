@@ -49,7 +49,19 @@ struct AlertContext {
 
     static let invalidEmail = AlertItem(
         title: Text("Invalid Email"),
-        message: Text("Please ensure your email is correct3"),
+        message: Text("Please ensure your email is correct"),
+        dismissButton: .default(Text("OK"))
+    )
+    
+    static let userSaveSuccess = AlertItem(
+        title: Text("Account Saved"),
+        message: Text("Your account information was successfully saved."),
+        dismissButton: .default(Text("OK"))
+    )
+   
+    static let invalidUserData = AlertItem(
+        title: Text("Account Error"),
+        message: Text("There was an error saving or retrieving your account."),
         dismissButton: .default(Text("OK"))
     )
 
