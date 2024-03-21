@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		911C4A042BA94A1500FD8AE7 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C4A032BA94A1500FD8AE7 /* RemoteImage.swift */; };
+		911C4A142BABF1DD00FD8AE7 /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C4A132BABF1DD00FD8AE7 /* AppetizerDetailView.swift */; };
 		914612032BA7DA7B00542FE4 /* AppetizersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612022BA7DA7B00542FE4 /* AppetizersApp.swift */; };
 		914612052BA7DA7B00542FE4 /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612042BA7DA7B00542FE4 /* AppetizerTabView.swift */; };
 		914612072BA7DA7E00542FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 914612062BA7DA7E00542FE4 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		911C4A032BA94A1500FD8AE7 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		911C4A132BABF1DD00FD8AE7 /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		914611FF2BA7DA7B00542FE4 /* Appetizers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appetizers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		914612022BA7DA7B00542FE4 /* AppetizersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersApp.swift; sourceTree = "<group>"; };
 		914612042BA7DA7B00542FE4 /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		911C4A062BABEDFB00FD8AE7 /* AppetizerListView */ = {
 			isa = PBXGroup;
 			children = (
+				911C4A132BABF1DD00FD8AE7 /* AppetizerDetailView.swift */,
 				9146121E2BA92D9B00542FE4 /* AppetizerListViewModel.swift */,
 				914612102BA7DB3800542FE4 /* AppetizerListView.swift */,
 			);
@@ -277,6 +280,7 @@
 				914612172BA8060100542FE4 /* Appetizer.swift in Sources */,
 				9146121D2BA8282F00542FE4 /* APError.swift in Sources */,
 				914612192BA8230E00542FE4 /* AppetizerListCell.swift in Sources */,
+				911C4A142BABF1DD00FD8AE7 /* AppetizerDetailView.swift in Sources */,
 				9146121F2BA92D9B00542FE4 /* AppetizerListViewModel.swift in Sources */,
 				914612132BA7DB3F00542FE4 /* AccountView.swift in Sources */,
 				914612242BA935B000542FE4 /* LoadingView.swift in Sources */,
