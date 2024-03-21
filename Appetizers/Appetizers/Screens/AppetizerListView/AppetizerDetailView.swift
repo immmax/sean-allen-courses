@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AppetizerDetailView: View {
+    @Environment(\.dismiss) var dismiss
     let appetizer: Appetizer
+    @Binding var isShowingDetail: Bool
     
     var body: some View {
         VStack {
-//            AppetizerRemoteImage(urlString: appetizer.imageURL)
-            Image(.asianFlankSteak)
-                .resizable()
+            AppetizerRemoteImage(urlString: appetizer.imageURL)
                 .scaledToFit()
                 .frame(height: 225)
             
@@ -68,7 +68,7 @@ struct AppetizerDetailView: View {
             Spacer()
             
             Button {
-                
+//                Add to order! Not Dismiss!
             } label: {
                 Text("$\(appetizer.price, specifier: "%.2f") - Add To Order")
                     .font(.title3)
@@ -86,7 +86,7 @@ struct AppetizerDetailView: View {
         .clipShape(.rect(cornerRadius: 12))
         .shadow(radius: 40)
         .overlay(Button {
-            print("dismiss")
+            isShowingDetail = false
         } label: {
             ZStack {
                 Circle()
@@ -104,5 +104,5 @@ struct AppetizerDetailView: View {
 }
 
 #Preview {
-    AppetizerDetailView(appetizer: MockData.sampleAppetizer)
+    AppetizerDetailView(appetizer: MockData.sampleAppetizer, isShowingDetail: .constant(true))
 }
