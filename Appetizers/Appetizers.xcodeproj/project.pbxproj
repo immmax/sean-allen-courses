@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911C4A042BA94A1500FD8AE7 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C4A032BA94A1500FD8AE7 /* RemoteImage.swift */; };
 		914612032BA7DA7B00542FE4 /* AppetizersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612022BA7DA7B00542FE4 /* AppetizersApp.swift */; };
 		914612052BA7DA7B00542FE4 /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612042BA7DA7B00542FE4 /* AppetizerTabView.swift */; };
 		914612072BA7DA7E00542FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 914612062BA7DA7E00542FE4 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		911C4A032BA94A1500FD8AE7 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		914611FF2BA7DA7B00542FE4 /* Appetizers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appetizers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		914612022BA7DA7B00542FE4 /* AppetizersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersApp.swift; sourceTree = "<group>"; };
 		914612042BA7DA7B00542FE4 /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				9146121A2BA826D900542FE4 /* NetworkManager.swift */,
 				9146121C2BA8282F00542FE4 /* APError.swift */,
 				914612232BA935B000542FE4 /* LoadingView.swift */,
+				911C4A032BA94A1500FD8AE7 /* RemoteImage.swift */,
 			);
 			path = Appetizers;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				9146121F2BA92D9B00542FE4 /* AppetizerListViewModel.swift in Sources */,
 				914612132BA7DB3F00542FE4 /* AccountView.swift in Sources */,
 				914612242BA935B000542FE4 /* LoadingView.swift in Sources */,
+				911C4A042BA94A1500FD8AE7 /* RemoteImage.swift in Sources */,
 				914612052BA7DA7B00542FE4 /* AppetizerTabView.swift in Sources */,
 				9146121B2BA826D900542FE4 /* NetworkManager.swift in Sources */,
 				914612032BA7DA7B00542FE4 /* AppetizersApp.swift in Sources */,
