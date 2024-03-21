@@ -32,5 +32,5 @@ struct AppetizerListCell: View {
 }
 
 #Preview {
-    AppetizerListCell(appetizer: MockData.sampleAppetizer)
+    AppetizerListCell(appetizer: MockData.sampleAppetizerOne)
 }

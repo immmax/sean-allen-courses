@@ -65,7 +65,7 @@ struct AppetizerDetailView: View {
 }
 
 #Preview {
-    AppetizerDetailView(appetizer: MockData.sampleAppetizer, isShowingDetail: .constant(true))
+    AppetizerDetailView(appetizer: MockData.sampleAppetizerOne, isShowingDetail: .constant(true))
 }
 
 struct NutritionInfo: View {

@@ -9,31 +9,38 @@ import SwiftUI
 
 struct OrderView: View {
     
-    @State private var orderItems: [Appetizer] = Array(repeating: MockData.sampleAppetizer, count: 3)
+    @State private var orderItems: [Appetizer] = MockData.orderItems
     
     var body: some View {
         NavigationStack {
-            VStack {
-                List {
-                    ForEach(orderItems) { appetizer in
-                        AppetizerListCell(appetizer: appetizer)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(orderItems) { appetizer in
+                            AppetizerListCell(appetizer: appetizer)
+                        }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
+                    .listStyle(.plain)
+                    
+                    Spacer()
+                    
+                    Button {
+                        print("Order placed")
+                    } label: {
+                        APButton(title: "$\(9 * 9, specifier: "%.2f") - Place Order")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding(.bottom, 25)
+                    
                 }
-                .listStyle(.plain)
                 
-                Spacer()
-                
-                Button {
-                    print("Order placed")
-                } label: {
-                    APButton(title: "$\(orderItems[0].price, specifier: "%.2f") - Place Order")
+                if orderItems.isEmpty {
+                    EmptyState(imageName: "empty-order",
+                               message: "You have no items in your order.\nPlease add an appetizer!")
                 }
-                .buttonStyle(.borderedProminent)
-                .padding(.bottom, 25)
-                
             }
-                .navigationTitle("🧾 Orders")
+            .navigationTitle("🧾 Orders")
         }
     }
     
