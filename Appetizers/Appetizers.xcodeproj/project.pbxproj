@@ -29,6 +29,7 @@
 		914612222BA9313500542FE4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612212BA9313500542FE4 /* Alert.swift */; };
 		914612242BA935B000542FE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612232BA935B000542FE4 /* LoadingView.swift */; };
 		91D7020A2BACCFFA0052E65A /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D702092BACCFFA0052E65A /* EmptyState.swift */; };
+		91D7020C2BAD6C640052E65A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7020B2BAD6C640052E65A /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		914612212BA9313500542FE4 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		914612232BA935B000542FE4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		91D702092BACCFFA0052E65A /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		91D7020B2BAD6C640052E65A /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				914612162BA8060100542FE4 /* Appetizer.swift */,
 				911C4A1E2BAC407100FD8AE7 /* User.swift */,
+				91D7020B2BAD6C640052E65A /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				914612192BA8230E00542FE4 /* AppetizerListCell.swift in Sources */,
 				911C4A172BAC2F2700FD8AE7 /* APButton.swift in Sources */,
 				911C4A142BABF1DD00FD8AE7 /* AppetizerDetailView.swift in Sources */,
+				91D7020C2BAD6C640052E65A /* Order.swift in Sources */,
 				9146121F2BA92D9B00542FE4 /* AppetizerListViewModel.swift in Sources */,
 				91D7020A2BACCFFA0052E65A /* EmptyState.swift in Sources */,
 				914612132BA7DB3F00542FE4 /* AccountView.swift in Sources */,
