@@ -16,7 +16,7 @@ struct APButton: View {
             .font(.title3)
             .fontWeight(.semibold)
             .foregroundStyle(.white)
-            .padding(.horizontal, 25)
+            .padding()
     }
 }
 

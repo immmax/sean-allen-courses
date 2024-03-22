@@ -30,6 +30,7 @@
 		914612242BA935B000542FE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914612232BA935B000542FE4 /* LoadingView.swift */; };
 		91D7020A2BACCFFA0052E65A /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D702092BACCFFA0052E65A /* EmptyState.swift */; };
 		91D7020C2BAD6C640052E65A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7020B2BAD6C640052E65A /* Order.swift */; };
+		91D7020E2BAD89250052E65A /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7020D2BAD89250052E65A /* CustomModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		914612232BA935B000542FE4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		91D702092BACCFFA0052E65A /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		91D7020B2BAD6C640052E65A /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		91D7020D2BAD89250052E65A /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				911C4A112BABEEE800FD8AE7 /* Image */,
 				911C4A102BABEEE000FD8AE7 /* Cells */,
 				911C4A0E2BABEEBD00FD8AE7 /* UIKit Components */,
+				91D7020D2BAD89250052E65A /* CustomModifiers.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				91D7020C2BAD6C640052E65A /* Order.swift in Sources */,
 				9146121F2BA92D9B00542FE4 /* AppetizerListViewModel.swift in Sources */,
 				91D7020A2BACCFFA0052E65A /* EmptyState.swift in Sources */,
+				91D7020E2BAD89250052E65A /* CustomModifiers.swift in Sources */,
 				914612132BA7DB3F00542FE4 /* AccountView.swift in Sources */,
 				914612242BA935B000542FE4 /* LoadingView.swift in Sources */,
 				911C4A042BA94A1500FD8AE7 /* RemoteImage.swift in Sources */,
