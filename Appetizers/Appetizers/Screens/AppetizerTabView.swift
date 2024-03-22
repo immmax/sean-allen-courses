@@ -29,7 +29,6 @@ struct AppetizerTabView: View {
                 }
             
         }
-        .tint(.brandPrimary)
     }
 }
 
