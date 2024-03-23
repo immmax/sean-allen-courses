@@ -97,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				911C4A1A2BAC385F00FD8AE7 /* AccountViewModel.swift */,
-				911C4A1C2BAC39F200FD8AE7 /* String+Ext.swift */,
 				914612122BA7DB3F00542FE4 /* AccountView.swift */,
 			);
 			path = AccountView;
@@ -116,6 +115,7 @@
 			children = (
 				911C4A0C2BABEE8D00FD8AE7 /* Alerts */,
 				911C4A0B2BABEE6400FD8AE7 /* Extensions */,
+				911C4A1C2BAC39F200FD8AE7 /* String+Ext.swift */,
 				911C4A0A2BABEE5800FD8AE7 /* Managers */,
 			);
 			path = Utilities;
