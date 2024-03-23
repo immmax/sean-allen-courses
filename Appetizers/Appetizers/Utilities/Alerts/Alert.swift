@@ -64,5 +64,11 @@ struct AlertContext {
         message: Text("There was an error saving or retrieving your account."),
         dismissButton: .default(Text("OK"))
     )
+    
+    static let genericError = AlertItem(
+        title: Text("Error"),
+        message: Text("We're unabe to complete your request this time. Please check your internet connection or try again later."),
+        dismissButton: .default(Text("OK"))
+    )
 
 }
