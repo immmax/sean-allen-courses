@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct FrameworkDetailView: View {
-    @State private var isShowingSafariView = false
     
-    let framework: Framework
+    @ObservedObject var viewModel: FrameworkDetailViewModel
     
     var body: some View {
         VStack {
@@ -18,27 +17,31 @@ struct FrameworkDetailView: View {
             
             Spacer()
             
-            FrameworkTitleView(framework: framework)
+            FrameworkTitleView(framework: viewModel.framework)
             
-            Text(framework.description)
+            Text(viewModel.framework.description)
                 .font(.body)
                 .padding()
             
             Spacer()
             
-            Button {
-                isShowingSafariView = true
-            } label: {
+            Link(destination: URL(string: viewModel.framework.urlString) ?? URL(string: "https://www.apple.com")!) {
                 AFButton(title: "Learn More")
             }
-            .fullScreenCover(isPresented: $isShowingSafariView) { // instead if sheet
-                SafariView(url: URL(string: framework.urlString) ?? URL(string: "https://www.apple.com")!)
-            }
+            
+//            Button {
+//                viewModel.isShowingSafariView = true
+//            } label: {
+//                AFButton(title: "Learn More")
+//            }
+//            .fullScreenCover(isPresented: $viewModel.isShowingSafariView) { // instead if sheet
+//                SafariView(url: URL(string: viewModel.framework.urlString) ?? URL(string: "https://www.apple.com")!)
+//            }
         }
         .padding()
     }
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.sampleFramework)
+    FrameworkDetailView(viewModel: FrameworkDetailViewModel(framework: MockData.sampleFramework))
 }

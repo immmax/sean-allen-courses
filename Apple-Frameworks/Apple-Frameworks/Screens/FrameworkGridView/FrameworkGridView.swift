@@ -25,7 +25,7 @@ struct FrameworkGridView: View {
             .navigationTitle("🍎 Frameworks")
             .preferredColorScheme(.dark)
             .sheet(isPresented: $viewModel.isShowingDetailView) {
-                FrameworkDetailView(framework: viewModel.selectedFramework ?? MockData.sampleFramework)
+                FrameworkDetailView(viewModel: FrameworkDetailViewModel(framework: viewModel.selectedFramework!))
             }
         }
     }

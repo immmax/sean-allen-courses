@@ -18,6 +18,7 @@
 		91BF15782BA6C17700DD7634 /* FrameworkGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF15772BA6C17700DD7634 /* FrameworkGridView.swift */; };
 		91BF157A2BA6C52300DD7634 /* FrameworkTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF15792BA6C52300DD7634 /* FrameworkTitleView.swift */; };
 		91BF157C2BA6CEB400DD7634 /* FrameworkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF157B2BA6CEB400DD7634 /* FrameworkDetailView.swift */; };
+		91CA8CD82BAFD0670066FD12 /* FrameworkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA8CD72BAFD0670066FD12 /* FrameworkDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		91BF15772BA6C17700DD7634 /* FrameworkGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGridView.swift; sourceTree = "<group>"; };
 		91BF15792BA6C52300DD7634 /* FrameworkTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkTitleView.swift; sourceTree = "<group>"; };
 		91BF157B2BA6CEB400DD7634 /* FrameworkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailView.swift; sourceTree = "<group>"; };
+		91CA8CD72BAFD0670066FD12 /* FrameworkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		9135988B2BA793770036053B /* FrameworkDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				91CA8CD72BAFD0670066FD12 /* FrameworkDetailViewModel.swift */,
 				91BF157B2BA6CEB400DD7634 /* FrameworkDetailView.swift */,
 			);
 			path = FrameworkDetailView;
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91CA8CD82BAFD0670066FD12 /* FrameworkDetailViewModel.swift in Sources */,
 				91BF15782BA6C17700DD7634 /* FrameworkGridView.swift in Sources */,
 				91BF15762BA6C01700DD7634 /* Framework.swift in Sources */,
 				9135988A2BA791FF0036053B /* XDismissButton.swift in Sources */,
