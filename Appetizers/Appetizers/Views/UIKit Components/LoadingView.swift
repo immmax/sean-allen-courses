@@ -13,9 +13,11 @@ struct LoadingView: View {
             Color(.systemBackground)
                 .ignoresSafeArea()
             
+//            ProgressView("Loading...")
             ProgressView()
-                .scaledToFit()
-                .foregroundStyle(.brandPrimary)
+                .progressViewStyle(.circular)
+                .tint(.brandPrimary)
+                .scaleEffect(2)
         }
     }
 }
