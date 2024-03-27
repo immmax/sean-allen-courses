@@ -16,13 +16,13 @@ struct SearchView: View {
                 Image(.ghLogo)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .padding(.top, 80)
+                    .frame(width: 230, height: 230)
+                    .padding(.top, 100)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(.gray.opacity(0.5), lineWidth: 2)
-                        .frame(width: 250, height: 50)
+                        .frame(width: 300, height: 55)
                         .foregroundStyle(Color(.systemBackground))
                         
                     
@@ -33,9 +33,9 @@ struct SearchView: View {
                     }
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
-                        .padding(.horizontal, 100)
+                        .padding(.horizontal, 80)
                 }
-                .padding(.vertical)
+                .padding(.vertical, 40)
                     
                 Spacer()
                 
@@ -43,16 +43,16 @@ struct SearchView: View {
                 Button {
                     print(username)
                 } label: {
-                    Text("Search")
-                        .frame(width: 200, height: 50)
+                    Text("Get Followers")
+                        .frame(width: 250, height: 30)
                 }
-                .padding(.bottom, 50)
-                .buttonStyle(.bordered)
-//                .controlSize(.large)
+                .padding(.bottom, 60)
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
                 .tint(.green)
             }
             .background(Color(.systemBackground))
-            .navigationTitle("Search")
+//            .navigationTitle("Search")
         }
     }
 }
