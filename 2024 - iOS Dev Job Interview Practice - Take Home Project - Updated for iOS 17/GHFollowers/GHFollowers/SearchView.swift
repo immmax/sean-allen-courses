@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var username = ""
-    
+    @State private var isShowingFollowersListView = false
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
@@ -24,36 +24,49 @@ struct SearchView: View {
                         .stroke(.gray.opacity(0.5), lineWidth: 2)
                         .frame(width: 300, height: 55)
                         .foregroundStyle(Color(.systemBackground))
-                        
+                    
                     
                     TextField(text: $username) {
-                        Text("Enter a username")
-                            .font(.title2)
+                        Text("Enter a username to search")
+                            .font(.title3)
                             .multilineTextAlignment(.center)
                     }
-                        .autocapitalization(.none)
-                        .autocorrectionDisabled()
-                        .padding(.horizontal, 80)
+                    .submitLabel(.go)
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
+                    .padding(.horizontal, 80)
+                    .onSubmit { showFollowersList() }
                 }
                 .padding(.vertical, 40)
-                    
+                
                 Spacer()
                 
-                
                 Button {
-                    print(username)
+                    showFollowersList()
                 } label: {
                     Text("Get Followers")
-                        .frame(width: 250, height: 30)
+                        .frame(width: 250, height: 50)
+                        .background(.green)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .padding(.bottom, 60)
+                        .tint(.white)
                 }
-                .padding(.bottom, 60)
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .tint(.green)
             }
             .background(Color(.systemBackground))
-//            .navigationTitle("Search")
+            .navigationTitle("Search")
+            .toolbar(.hidden)
+            .navigationDestination(isPresented: $isShowingFollowersListView) {
+                FollowerListView(username: username)
+            }
         }
+    }
+    
+    func showFollowersList() {
+        guard !username.isEmpty else {
+            print("No username")
+            return
+        }
+        isShowingFollowersListView = true
     }
 }
 
