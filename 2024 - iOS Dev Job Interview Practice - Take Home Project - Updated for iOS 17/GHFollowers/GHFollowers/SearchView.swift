@@ -10,6 +10,9 @@ import SwiftUI
 struct SearchView: View {
     @State private var username = ""
     @State private var isShowingFollowersListView = false
+    
+    @State private var alertItem: AlertItem?
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
@@ -58,12 +61,18 @@ struct SearchView: View {
             .navigationDestination(isPresented: $isShowingFollowersListView) {
                 FollowerListView(username: username)
             }
+            .alert(item: $alertItem) { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
+            }
         }
     }
     
     func showFollowersList() {
         guard !username.isEmpty else {
             print("No username")
+            alertItem  = AlertContext.emptyUsername
             return
         }
         isShowingFollowersListView = true
