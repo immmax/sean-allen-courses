@@ -36,6 +36,10 @@ import SwiftUI
                         alertItem = AlertContext.emptyUsername
                     case .unableToComplete:
                         alertItem = AlertContext.unableToComplete
+                    case .invalidUsername:
+                        alertItem = AlertContext.invalidUsername
+                    case .genericError:
+                        alertItem = AlertContext.genericError
                     }
                 } else {
                     alertItem = AlertContext.genericError
