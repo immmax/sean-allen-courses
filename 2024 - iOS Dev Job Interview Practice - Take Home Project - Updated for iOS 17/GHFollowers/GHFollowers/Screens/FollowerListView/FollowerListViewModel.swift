@@ -15,8 +15,9 @@ import SwiftUI
     @Published var isLoading = false
     
     @Published var isShowingDetails = false
-    @Published var selectedUser: User?
+    @Published var selectedFollower: Follower?
     
+    let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
     func getFollowers(username: String) {
         isLoading = true

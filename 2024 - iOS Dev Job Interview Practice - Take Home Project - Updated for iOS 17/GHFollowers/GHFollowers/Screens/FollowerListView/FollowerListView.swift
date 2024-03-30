@@ -15,9 +15,20 @@ struct FollowerListView: View {
     var body: some View {
         ZStack {
             NavigationStack {
-                Text("Hello, \(username)!")
-                    .navigationTitle(username)
-    //                .navigationBarTitleDisplayMode(.large)
+                ScrollView {
+                    LazyVGrid(columns: viewModel.columns) {
+                        ForEach(viewModel.followers) { follower in
+                            FollowerCell(follower: follower)
+                                .onTapGesture {
+                                    viewModel.selectedFollower = follower
+                                    print(viewModel.selectedFollower!)
+                                }
+                        }
+                    }
+                }
+                .padding(12)
+                .navigationTitle(username)
+                .navigationBarTitleDisplayMode(.large)
             }
             .task {
                 viewModel.getFollowers(username: username)
@@ -29,7 +40,7 @@ struct FollowerListView: View {
 //                    isShowingDetail: $viewModel.isShowingDetail
 //                )
 //            }
-//            
+//
             if viewModel.isLoading{
 //                LoadingView()
                 ProgressView()
@@ -46,5 +57,5 @@ struct FollowerListView: View {
 }
 
 #Preview {
-    FollowerListView(username: "")
+    FollowerListView(username: "SAllen0400")
 }

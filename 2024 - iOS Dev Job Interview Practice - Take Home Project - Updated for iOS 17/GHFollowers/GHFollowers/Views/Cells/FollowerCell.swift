@@ -16,8 +16,10 @@ struct FollowerCell: View {
             
             Text(follower.login)
                 .font(.headline.bold())
-                .padding(.horizontal)
+                .padding(.bottom, 12)
+                .lineLimit(1)
         }
+        .padding(10)
     }
 }
 
