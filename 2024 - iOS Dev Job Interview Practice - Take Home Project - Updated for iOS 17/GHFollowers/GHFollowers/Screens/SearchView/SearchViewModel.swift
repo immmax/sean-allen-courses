@@ -20,7 +20,7 @@ final class SearchViewModel: ObservableObject {
             alertItem  = AlertContext.emptyUsername
             return
         }
+        
         isShowingFollowersListView = true
     }
-    
 }

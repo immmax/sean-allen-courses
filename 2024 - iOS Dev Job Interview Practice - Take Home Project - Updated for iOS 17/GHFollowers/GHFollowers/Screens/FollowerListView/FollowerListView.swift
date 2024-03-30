@@ -8,12 +8,39 @@
 import SwiftUI
 
 struct FollowerListView: View {
+    @StateObject var viewModel = FollowersListViewModel()
+    
     var username: String
     
     var body: some View {
-        NavigationStack {
-            Text("Hello, \(username)!")
-                .navigationTitle(username)
+        ZStack {
+            NavigationStack {
+                Text("Hello, \(username)!")
+                    .navigationTitle(username)
+    //                .navigationBarTitleDisplayMode(.large)
+            }
+            .task {
+                viewModel.getFollowers(username: username)
+            }
+            
+//            if viewModel.isShowingDetail {
+//                AppetizerDetailView(
+//                    appetizer: viewModel.selectedAppetizer!,
+//                    isShowingDetail: $viewModel.isShowingDetail
+//                )
+//            }
+//            
+            if viewModel.isLoading{
+//                LoadingView()
+                ProgressView()
+            }
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(
+                title: alertItem.title,
+                message: alertItem.message,
+                dismissButton: alertItem.dismissButton
+            )
         }
     }
 }
