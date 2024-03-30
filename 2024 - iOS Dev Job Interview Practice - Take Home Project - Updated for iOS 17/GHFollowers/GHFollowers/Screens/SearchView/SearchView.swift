@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var username = ""
-    @State private var isShowingFollowersListView = false
-    
-    @State private var alertItem: AlertItem?
+    @StateObject var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationStack {
@@ -29,7 +26,7 @@ struct SearchView: View {
                         .foregroundStyle(Color(.systemBackground))
                     
                     
-                    TextField(text: $username) {
+                    TextField(text: $viewModel.username) {
                         Text("Enter a username to search")
                             .font(.title3)
                             .multilineTextAlignment(.center)
@@ -38,44 +35,31 @@ struct SearchView: View {
                     .autocapitalization(.none)
                     .autocorrectionDisabled()
                     .padding(.horizontal, 80)
-                    .onSubmit { showFollowersList() }
+                    .onSubmit { viewModel.showFollowersList() }
                 }
                 .padding(.vertical, 40)
                 
                 Spacer()
                 
                 Button {
-                    showFollowersList()
+                    viewModel.showFollowersList()
                 } label: {
-                    Text("Get Followers")
-                        .frame(width: 250, height: 50)
-                        .background(.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    GFButton(title: "Get Followers")
                         .padding(.bottom, 60)
-                        .tint(.white)
                 }
             }
             .background(Color(.systemBackground))
             .navigationTitle("Search")
             .toolbar(.hidden)
-            .navigationDestination(isPresented: $isShowingFollowersListView) {
-                FollowerListView(username: username)
+            .navigationDestination(isPresented: $viewModel.isShowingFollowersListView) {
+                FollowerListView(username: viewModel.username)
             }
-            .alert(item: $alertItem) { alertItem in
+            .alert(item: $viewModel.alertItem) { alertItem in
                 Alert(title: alertItem.title,
                       message: alertItem.message,
                       dismissButton: alertItem.dismissButton)
             }
         }
-    }
-    
-    func showFollowersList() {
-        guard !username.isEmpty else {
-            print("No username")
-            alertItem  = AlertContext.emptyUsername
-            return
-        }
-        isShowingFollowersListView = true
     }
 }
 

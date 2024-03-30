@@ -11,7 +11,7 @@ import SwiftUI
 struct GHFollowersApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GFTabView()
         }
     }
 }
