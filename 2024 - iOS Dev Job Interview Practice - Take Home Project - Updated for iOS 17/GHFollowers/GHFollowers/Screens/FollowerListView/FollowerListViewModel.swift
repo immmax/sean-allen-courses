@@ -6,17 +6,31 @@
 //
 
 import SwiftUI
+import Observation
 
-@MainActor final class FollowersListViewModel: ObservableObject {
+@Observable final class FollowersListViewModel {
     
-    @Published var followers: [Follower] = []
-    @Published var alertItem: AlertItem?
+    var followers: [Follower] = []
+    var alertItem: AlertItem?
     
-    @Published var isLoading = false
+    var isLoading = false
     
-    @Published var isShowingDetails = false
-    @Published var selectedFollower: Follower?
-    @Published var page = 1
+    var isShowingDetails = false
+    var selectedFollower: Follower?
+    var page = 1
+    
+    var searchText = ""
+//    var isShowingSearchBar = true
+    
+    // Published were above
+    
+    var filteredFollowers: [Follower] {
+        if searchText.isEmpty {
+            return followers
+        } else {
+            return followers.filter { $0.login.lowercased().contains(searchText.lowercased()) }
+        }
+    }
     
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
@@ -28,6 +42,7 @@ import SwiftUI
                 let newPageOfFollowers = try await NetworkManager.shared.getFollowers(for: username, page: page)
                 followers.append(contentsOf: newPageOfFollowers)
                 isLoading = false
+//                if followers.isEmpty { isShowingSearchBar = false }
             } catch {
                 if let gfError = error as? GFError {
                     switch gfError {

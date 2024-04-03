@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Observation
 
-final class SearchViewModel: ObservableObject {
+@Observable  final class SearchViewModel {
     
-    @Published var username = ""
-    @Published var isShowingFollowersListView = false
+    var username = ""
+    var isShowingFollowersListView = false
     
-    @Published var alertItem: AlertItem?
+    var alertItem: AlertItem?
     
     func showFollowersList() {
         guard !username.isEmpty else {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FollowerListView: View {
-    @StateObject var viewModel = FollowersListViewModel()
+    @State private var viewModel = FollowersListViewModel()
     
     var username: String
     
@@ -17,7 +17,7 @@ struct FollowerListView: View {
             NavigationStack {
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
-                        ForEach(viewModel.followers) { follower in
+                        ForEach(viewModel.filteredFollowers) { follower in
                             FollowerCell(follower: follower)
                                 .onTapGesture {
                                     viewModel.selectedFollower = follower
@@ -31,28 +31,45 @@ struct FollowerListView: View {
                                 }
                         }
                     }
+                    .animation(.default, value: viewModel.filteredFollowers)
+                    .transition(.identity)
                 }
                 .padding(12)
                 .navigationTitle(username)
                 .navigationBarTitleDisplayMode(.large)
+                .searchable(
+                    text: $viewModel.searchText,
+//                    isPresented: $viewModel.isShowingSearchBar,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Search for a username"
+                )
             }
             .task {
                 viewModel.getFollowers(username: username, page: viewModel.page)
             }
             
-//            if viewModel.isShowingDetail {
-//                AppetizerDetailView(
-//                    appetizer: viewModel.selectedAppetizer!,
-//                    isShowingDetail: $viewModel.isShowingDetail
-//                )
-//            }
-//
-            if viewModel.followers.isEmpty {
-                GFEmptyStateView(message: EmptyStatesContext.noFollowers)
-            }
             
-            if viewModel.isLoading{
+            //            if viewModel.isShowingDetail {
+            //                AppetizerDetailView(
+            //                    appetizer: viewModel.selectedAppetizer!,
+            //                    isShowingDetail: $viewModel.isShowingDetail
+            //                )
+            //            }
+            //
+            
+            
+            if viewModel.isLoading {
+                
                 LoadingView()
+                
+            } else if viewModel.followers.isEmpty {
+                
+                GFEmptyStateView(message: EmptyStatesContext.noFollowers)
+                
+            } else if viewModel.filteredFollowers.isEmpty {
+                
+                ContentUnavailableView.search
+                
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in
