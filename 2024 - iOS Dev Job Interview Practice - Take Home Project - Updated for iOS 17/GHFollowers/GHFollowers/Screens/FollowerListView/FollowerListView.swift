@@ -48,8 +48,8 @@ struct FollowerListView: View {
 //            }
 //
             if viewModel.isLoading{
-//                LoadingView()
-                ProgressView()
+                LoadingView()
+//                ProgressView()
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in
