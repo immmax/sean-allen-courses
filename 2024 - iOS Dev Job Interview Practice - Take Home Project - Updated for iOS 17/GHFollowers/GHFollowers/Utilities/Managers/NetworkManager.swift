@@ -8,12 +8,14 @@
 import SwiftUI
 
 final class NetworkManager {
+    
     static let shared = NetworkManager()
     private let cache = NSCache<NSString, UIImage>()
     
     private init() { }
     
     let baseURL = "https://api.github.com/users/"
+    
     
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
         let endpoint = baseURL + "\(username)/followers?per_page=100&page=\(page)"
@@ -33,6 +35,7 @@ final class NetworkManager {
             throw GFError.invalidData
         }
     }
+    
     
     func downloadImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
         

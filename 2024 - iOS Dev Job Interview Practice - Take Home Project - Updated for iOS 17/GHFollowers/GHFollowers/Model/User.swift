@@ -11,9 +11,9 @@ struct User: Codable, Identifiable {
     let id: Int
     let login: String
     let avatarUrl: String
-    let name: String?
-    let location: String?
-    let bio: String?
+    var name: String?
+    var location: String?
+    var bio: String?
     let publicRepos: Int
     let publicGists: Int
     let followers: Int

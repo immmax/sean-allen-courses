@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//import UIKit
 
 final class ImageLoader: ObservableObject {
     
@@ -22,6 +21,7 @@ final class ImageLoader: ObservableObject {
     }
 }
 
+
 struct RemoteImage: View {
     var image: Image?
     
@@ -32,27 +32,19 @@ struct RemoteImage: View {
 
 
 struct GFRemoteImage: View {
+    
     @StateObject var imageLoader = ImageLoader()
     var urlString: String
     
     var body: some View {
+        
         RemoteImage(image: imageLoader.image)
             .onAppear { imageLoader.load(fromURLString: urlString) }
             .modifier(CellImageStyle())
         
-//        AsyncImage(url: URL(string: avatarUrl), content: { image in
-//            image
-//                .resizable()
-//                .modifier(CellImageStyle())
-//            
-//        }, placeholder: {
-//            Image(.avatarPlaceholder)
-//                .resizable()
-//                .modifier(CellImageStyle())
-//        })
     }
 }
 
-//#Preview {
-//    GFAvatarImage()
-//}
+#Preview {
+    GFRemoteImage(urlString: MockData.sampleFollower.avatarUrl)
+}
