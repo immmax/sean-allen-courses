@@ -15,7 +15,7 @@ import Observation
     
     var isLoading = false
     
-    var isShowingDetails = false
+    var isShowingUserInfo = false
     var selectedFollower: Follower?
     var page = 1
     

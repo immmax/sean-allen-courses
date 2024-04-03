@@ -22,6 +22,7 @@ struct FollowerListView: View {
                                 .onTapGesture {
                                     viewModel.selectedFollower = follower
                                     print(viewModel.selectedFollower!)
+                                    viewModel.isShowingUserInfo = true
                                 }
                                 .onAppear {
                                     if follower == viewModel.followers.last {
@@ -47,15 +48,9 @@ struct FollowerListView: View {
             .task {
                 viewModel.getFollowers(username: username, page: viewModel.page)
             }
-            
-            
-            //            if viewModel.isShowingDetail {
-            //                AppetizerDetailView(
-            //                    appetizer: viewModel.selectedAppetizer!,
-            //                    isShowingDetail: $viewModel.isShowingDetail
-            //                )
-            //            }
-            //
+            .sheet(isPresented: $viewModel.isShowingUserInfo) {
+                UserInfoView(follower: viewModel.selectedFollower!)
+            }
             
             
             if viewModel.isLoading {
