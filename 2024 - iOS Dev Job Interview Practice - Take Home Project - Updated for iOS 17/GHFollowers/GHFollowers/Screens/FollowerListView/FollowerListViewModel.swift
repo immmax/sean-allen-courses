@@ -16,15 +16,17 @@ import SwiftUI
     
     @Published var isShowingDetails = false
     @Published var selectedFollower: Follower?
+    @Published var page = 1
     
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
-    func getFollowers(username: String) {
+    func getFollowers(username: String, page: Int) {
         isLoading = true
         
         Task {
             do {
-                followers = try await NetworkManager.shared.getFollowers(for: username, page: 1)
+                let newPageOfFollowers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                followers.append(contentsOf: newPageOfFollowers)
                 isLoading = false
             } catch {
                 if let gfError = error as? GFError {

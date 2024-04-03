@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Follower: Codable, Identifiable {
+struct Follower: Codable, Identifiable, Equatable {
     let id: Int
     let login: String
     let avatarUrl: String

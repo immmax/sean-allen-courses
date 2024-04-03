@@ -23,6 +23,12 @@ struct FollowerListView: View {
                                     viewModel.selectedFollower = follower
                                     print(viewModel.selectedFollower!)
                                 }
+                                .onAppear {
+                                    if follower == viewModel.followers.last {
+                                        viewModel.page += 1
+                                        viewModel.getFollowers(username: username, page: viewModel.page)
+                                    }
+                                }
                         }
                     }
                 }
@@ -31,7 +37,7 @@ struct FollowerListView: View {
                 .navigationBarTitleDisplayMode(.large)
             }
             .task {
-                viewModel.getFollowers(username: username)
+                viewModel.getFollowers(username: username, page: viewModel.page)
             }
             
 //            if viewModel.isShowingDetail {
