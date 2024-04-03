@@ -12,10 +12,3 @@ struct Follower: Codable, Identifiable, Equatable {
     let login: String
     let avatarUrl: String
 }
-
-
-struct MockData {
-    static let sampleFollower = Follower(id: 123,
-                                         login: "just-a-login",
-                                         avatarUrl: "")
-}
