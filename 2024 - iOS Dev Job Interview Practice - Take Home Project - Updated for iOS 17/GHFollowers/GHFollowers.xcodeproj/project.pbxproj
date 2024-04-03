@@ -16,6 +16,7 @@
 		914F3D4D2BB81DD000D23E4C /* GFAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F3D4C2BB81DD000D23E4C /* GFAvatarImage.swift */; };
 		914F3D4F2BB821C100D23E4C /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F3D4E2BB821C100D23E4C /* CustomModifiers.swift */; };
 		916CCE012BBD34F700AAE00E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CCE002BBD34F700AAE00E /* LoadingView.swift */; };
+		916CCE032BBD387000AAE00E /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CCE022BBD387000AAE00E /* GFEmptyStateView.swift */; };
 		917AB15E2BB7C4A500F1A389 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AB15D2BB7C4A500F1A389 /* GFButton.swift */; };
 		917AB1662BB7C5C000F1A389 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AB1652BB7C5C000F1A389 /* SearchViewModel.swift */; };
 		917AB1682BB7C67200F1A389 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AB1672BB7C67200F1A389 /* FavoritesListViewModel.swift */; };
@@ -40,6 +41,7 @@
 		914F3D4C2BB81DD000D23E4C /* GFAvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImage.swift; sourceTree = "<group>"; };
 		914F3D4E2BB821C100D23E4C /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		916CCE002BBD34F700AAE00E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		916CCE022BBD387000AAE00E /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		917AB15D2BB7C4A500F1A389 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		917AB1652BB7C5C000F1A389 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		917AB1672BB7C67200F1A389 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				917AB1612BB7C54400F1A389 /* Cells */,
 				914F3D4E2BB821C100D23E4C /* CustomModifiers.swift */,
 				916CCE002BBD34F700AAE00E /* LoadingView.swift */,
+				916CCE022BBD387000AAE00E /* GFEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				91BCC71F2BB78FA900E92579 /* GFAlert.swift in Sources */,
 				917AB1702BB7CFD800F1A389 /* User.swift in Sources */,
 				917AB16E2BB7CF2A00F1A389 /* Follower.swift in Sources */,
+				916CCE032BBD387000AAE00E /* GFEmptyStateView.swift in Sources */,
 				914F3D4D2BB81DD000D23E4C /* GFAvatarImage.swift in Sources */,
 				914310912BB4056E00B4E42D /* SearchView.swift in Sources */,
 				914310832BB401C400B4E42D /* GHFollowersApp.swift in Sources */,

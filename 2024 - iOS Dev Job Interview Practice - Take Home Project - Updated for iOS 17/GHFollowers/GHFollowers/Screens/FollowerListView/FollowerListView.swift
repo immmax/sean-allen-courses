@@ -47,9 +47,12 @@ struct FollowerListView: View {
 //                )
 //            }
 //
+            if viewModel.followers.isEmpty {
+                GFEmptyStateView(message: EmptyStatesContext.noFollowers)
+            }
+            
             if viewModel.isLoading{
                 LoadingView()
-//                ProgressView()
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in
