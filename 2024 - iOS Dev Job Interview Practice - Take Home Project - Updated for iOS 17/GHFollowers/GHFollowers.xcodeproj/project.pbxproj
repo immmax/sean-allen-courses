@@ -101,6 +101,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		914F3D502BBB47C400D23E4C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				914F3D4C2BB81DD000D23E4C /* GFAvatarImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		917AB15A2BB7C3F800F1A389 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,9 +122,9 @@
 		917AB15B2BB7C44A00F1A389 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				914F3D502BBB47C400D23E4C /* Images */,
 				917AB15C2BB7C45200F1A389 /* Buttons */,
 				917AB1612BB7C54400F1A389 /* Cells */,
-				914F3D4C2BB81DD000D23E4C /* GFAvatarImage.swift */,
 				914F3D4E2BB821C100D23E4C /* CustomModifiers.swift */,
 			);
 			path = Views;

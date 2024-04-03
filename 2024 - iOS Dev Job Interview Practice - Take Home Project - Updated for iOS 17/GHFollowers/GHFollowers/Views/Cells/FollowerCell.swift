@@ -12,7 +12,7 @@ struct FollowerCell: View {
     var body: some View {
         VStack(alignment: .center) {
             
-            GFAvatarImage(avatarUrl: follower.avatarUrl)
+            GFRemoteImage(urlString: follower.avatarUrl)
             
             Text(follower.login)
                 .font(.headline.bold())
