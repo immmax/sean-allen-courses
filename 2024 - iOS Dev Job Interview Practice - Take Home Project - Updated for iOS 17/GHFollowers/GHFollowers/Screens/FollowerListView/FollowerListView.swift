@@ -21,7 +21,6 @@ struct FollowerListView: View {
                             FollowerCell(follower: follower)
                                 .onTapGesture {
                                     viewModel.selectedFollower = follower
-                                    print(viewModel.selectedFollower!)
                                     viewModel.isShowingUserInfo = true
                                 }
                                 .onAppear {
@@ -44,12 +43,14 @@ struct FollowerListView: View {
                     placement: .navigationBarDrawer(displayMode: .always),
                     prompt: "Search for a username"
                 )
+                .scrollDismissesKeyboard(.immediately)
+                .submitLabel(.search)
             }
             .task {
                 viewModel.getFollowers(username: username, page: viewModel.page)
             }
             .sheet(isPresented: $viewModel.isShowingUserInfo) {
-                UserInfoView(follower: viewModel.selectedFollower!)
+                UserInfoView(username: viewModel.selectedFollower!.login)
             }
             
             
@@ -62,7 +63,7 @@ struct FollowerListView: View {
                 GFEmptyStateView(message: EmptyStatesContext.noFollowers)
                 
             } else if viewModel.filteredFollowers.isEmpty {
-                
+                #warning("Shows while loading even if there are followers")
                 ContentUnavailableView.search
                 
             }

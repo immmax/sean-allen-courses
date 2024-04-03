@@ -1,50 +1,33 @@
 //
-//  FollowerListViewModel.swift
+//  UserInfoViewModel.swift
 //  GHFollowers
 //
-//  Created by Maxim Datskiy on 3/29/24.
+//  Created by Maxim Datskiy on 4/3/24.
 //
 
-import SwiftUI
+import Foundation
 import Observation
 
-@Observable final class FollowersListViewModel {
+@Observable final class UserInfoViewModel {
     
-    var followers: [Follower] = []
+    var user: User?
     var alertItem: AlertItem?
     
     var isLoading = false
     
-    var isShowingUserInfo = false
-    var selectedFollower: Follower?
+    init(user: User? = MockData.sampleUser, alertItem: AlertItem? = nil, isLoading: Bool = false) {
+        self.user = user
+        self.alertItem = alertItem
+        self.isLoading = isLoading
+    }    
     
-    var page = 1
-    
-    var searchText = ""
-//    var isShowingSearchBar = true
-    
-    // Published were above
-    
-    var filteredFollowers: [Follower] {
-        #warning("It searches only on the loaded pages! Not in all followers!")
-        if searchText.isEmpty {
-            return followers
-        } else {
-            return followers.filter { $0.login.lowercased().contains(searchText.lowercased()) }
-        }
-    }
-    
-    let columns = Array(repeating: GridItem(.flexible()), count: 3)
-    
-    func getFollowers(username: String, page: Int) {
+    func getUserInfo(username: String) {
         isLoading = true
         
         Task {
             do {
-                let newPageOfFollowers = try await NetworkManager.shared.getFollowers(for: username, page: page)
-                followers.append(contentsOf: newPageOfFollowers)
+                user = try await NetworkManager.shared.getUserInfo(for: username)
                 isLoading = false
-//                if followers.isEmpty { isShowingSearchBar = false }
             } catch {
                 if let gfError = error as? GFError {
                     switch gfError {
@@ -64,7 +47,6 @@ import Observation
                 } else {
                     alertItem = AlertContext.genericError
                 }
-                isLoading = false
             }
         }
     }

@@ -8,26 +8,25 @@
 import SwiftUI
 
 struct UserInfoView: View {
+    
     @Environment(\.dismiss) var dismiss
-    var follower: Follower
+    @State private var viewModel = UserInfoViewModel()
+
+    var username: String
     
     var body: some View {
+        
         NavigationStack {
-            Text("Hello, \(follower.login)")
-                .toolbar {
-                    Button {
-                        print("UserInfoView Dismissed")
-                        dismiss()
-                    } label: {
-                        Text("Dismiss")
-                    }
-                }
-                
+            
+            Text("Hello \(viewModel.user!.login)")
+                .toolbar { Button("Dismiss") { dismiss() } }
+                .onAppear { viewModel.getUserInfo(username: username) }
         }
         .background(Color(.systemBackground))
+        
     }
 }
 
 #Preview {
-    UserInfoView(follower: MockData.sampleFollower)
+    UserInfoView(username: MockData.sampleFollower.login)
 }
