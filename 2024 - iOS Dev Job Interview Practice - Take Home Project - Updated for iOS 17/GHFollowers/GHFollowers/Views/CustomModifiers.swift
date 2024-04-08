@@ -15,3 +15,23 @@ struct  CellImageStyle: ViewModifier {
 //            .padding(10)
     }
 }
+
+
+struct RoundedTextFieldStyle: TextFieldStyle {
+    
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding()
+            .font(.title2)
+            .frame(width: 300, height: 55)
+            .tint(Color(.label))
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(.systemGray4), lineWidth: 3)
+            }
+            .multilineTextAlignment(.center)
+            .autocorrectionDisabled()
+            .autocapitalization(.none)
+            .submitLabel(.go)
+    }
+}

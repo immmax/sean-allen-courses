@@ -19,32 +19,17 @@ struct SearchView: View {
                     .frame(width: 230, height: 230)
                     .padding(.top, 100)
                 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.gray.opacity(0.5), lineWidth: 2)
-                        .frame(width: 300, height: 55)
-                        .foregroundStyle(Color(.systemBackground))
-                    
-                    
-                    TextField(text: $viewModel.username) {
-                        Text("Enter a username to search")
-                            .font(.title3)
-                            .multilineTextAlignment(.center)
-                    }
-                    .submitLabel(.go)
-                    .autocapitalization(.none)
-                    .autocorrectionDisabled()
-                    .padding(.horizontal, 80)
+                TextField("Enter a username", text: $viewModel.username)
+                    .textFieldStyle(RoundedTextFieldStyle())
                     .onSubmit { viewModel.showFollowersList() }
-                }
-                .padding(.vertical, 40)
+                    .padding(.vertical, 40)
                 
                 Spacer()
                 
                 Button {
                     viewModel.showFollowersList()
                 } label: {
-                    GFButton(title: "Get Followers")
+                    GFButton("Get Followers")
                         .padding(.bottom, 60)
                 }
             }
