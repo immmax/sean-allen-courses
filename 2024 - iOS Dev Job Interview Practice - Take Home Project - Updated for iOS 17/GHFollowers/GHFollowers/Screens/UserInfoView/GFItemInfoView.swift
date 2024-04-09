@@ -27,12 +27,13 @@ struct GFItemInfoView: View {
                     .scaledToFill()
                     .tint(Color(.label))
                 Text(title)
-                    .font(.title3)
+                    .font(.headline)
                     .multilineTextAlignment(.leading)
             }
             Text("\(count)")
-                .font(.title3)
+                .font(.headline)
         }
+        .frame(maxWidth: .infinity, alignment: .center)
     }
     
     init(itemInfoType: ItemInfoType, withCount count: Int) {

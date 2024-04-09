@@ -21,15 +21,27 @@ struct UserInfoView: View {
         NavigationStack {
             
             VStack(spacing: 20) {
-                GFUserInfoHeaderView(user: user ?? MockData.emptyUser)
+                GFUserInfoHeaderView(user: user)
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(maxHeight: 140)
-                    .foregroundStyle(.pink)
+                GFInfoCardView(
+                    user: user,
+                    itemInfoOneType: .repos,
+                    countOne: user.publicRepos,
+                    itemInfoTwoType: .gists,
+                    countTwo: user.publicGists,
+                    buttonTitle: "GitHub Profile",
+                    backgroundColor: Color(.systemPurple)
+                )
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(maxHeight: 140)
-                    .foregroundStyle(.blue)
+                GFInfoCardView(
+                    user: user,
+                    itemInfoOneType: .followers,
+                    countOne: user.followers,
+                    itemInfoTwoType: .following,
+                    countTwo: user.following,
+                    buttonTitle: "Get Followers",
+                    backgroundColor: Color(.systemGreen)
+                )
             }
             
             Spacer()

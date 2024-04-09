@@ -16,10 +16,12 @@ struct GFButton: View {
         Text(title)
             .font(.headline)
             .fontWeight(.semibold)
-            .frame(width: 250, height: 50)
+            .tint(.white)
+            .frame(height: 44)
+            .frame(maxWidth: .infinity)
             .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .tint(.white)
+            .padding(10)
     }
     
     init(_ title: LocalizedStringKey, backgroundColor: Color = .green) {

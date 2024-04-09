@@ -31,6 +31,7 @@ struct SearchView: View {
                 } label: {
                     GFButton("Get Followers")
                         .padding(.bottom, 60)
+                        .padding(.horizontal, 50)
                 }
             }
             .background(Color(.systemBackground))
