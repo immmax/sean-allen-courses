@@ -42,10 +42,11 @@ struct UserInfoView: View {
                     buttonTitle: "Get Followers",
                     backgroundColor: Color(.systemGreen)
                 )
+                
+                Text("GitHub since \(user.createdAt.convertToDisplayFormat())")
             }
-            
-            Spacer()
-                .toolbar { Button("Done") { dismiss() } }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .toolbar { Button("Done") { dismiss() } }
         }
         .padding(.horizontal, 20)
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
