@@ -1,5 +1,5 @@
 
-//  FavoriteView.swift
+//  FavoriteListView.swift
 //  GHFollowers
 //
 //  Created by Maxim Datskiy on 3/27/24.

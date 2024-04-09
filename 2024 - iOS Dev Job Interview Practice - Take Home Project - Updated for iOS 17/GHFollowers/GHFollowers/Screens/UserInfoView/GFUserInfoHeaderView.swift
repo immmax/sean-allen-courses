@@ -40,13 +40,11 @@ struct GFUserInfoHeaderView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(3, reservesSpace: false)
         }
-        .padding(.horizontal, 10)
-        .background(.cyan.opacity(0.2))
+        .padding(.horizontal, 20)
     }
     
     init(user: User) {
         self.user = user
-        print(user)
     }
 }
 

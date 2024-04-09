@@ -24,14 +24,16 @@ struct UserInfoView: View {
                 GFUserInfoHeaderView(user: user ?? MockData.emptyUser)
                 
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(maxHeight: 150)
+                    .frame(maxHeight: 140)
+                    .foregroundStyle(.pink)
+                
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(maxHeight: 150)
+                    .frame(maxHeight: 140)
+                    .foregroundStyle(.blue)
             }
             
             Spacer()
                 .toolbar { Button("Done") { dismiss() } }
-//                .onAppear { viewModel.getUserInfo(username: username) }
         }
         .padding(.horizontal, 20)
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
@@ -39,6 +41,6 @@ struct UserInfoView: View {
     }
 }
 
-//#Preview {
-//    UserInfoView(username: MockData.sampleFollower.login)
-//}
+#Preview {
+    UserInfoView(user: MockData.sampleUser)
+}
