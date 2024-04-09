@@ -10,18 +10,16 @@ import Observation
 
 @Observable final class FollowersListViewModel {
     
-    var followers: [Follower] = []
     var alertItem: AlertItem?
     
     var isLoading = false
-    
-    var isShowingUserInfo = false
-    var user: User?
-    
+    var followers: [Follower] = []
     var page = 1
     
     var searchText = ""
-//    var isShowingSearchBar = true
+    
+    var isShowingUserInfo = false
+    var user: User?
     
     // Published were above
     
@@ -44,7 +42,6 @@ import Observation
                 let newPageOfFollowers = try await NetworkManager.shared.getFollowers(for: username, page: page)
                 followers.append(contentsOf: newPageOfFollowers)
                 isLoading = false
-//                if followers.isEmpty { isShowingSearchBar = false }
             } catch {
                 if let gfError = error as? GFError {
                     switch gfError {

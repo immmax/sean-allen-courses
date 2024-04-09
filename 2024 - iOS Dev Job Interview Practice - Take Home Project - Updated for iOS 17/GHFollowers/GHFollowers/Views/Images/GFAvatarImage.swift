@@ -40,7 +40,6 @@ struct GFRemoteImage: View {
         
         RemoteImage(image: imageLoader.image)
             .onAppear { imageLoader.load(fromURLString: urlString) }
-            .modifier(CellImageStyle())
     }
     
     init(urlString: String) {

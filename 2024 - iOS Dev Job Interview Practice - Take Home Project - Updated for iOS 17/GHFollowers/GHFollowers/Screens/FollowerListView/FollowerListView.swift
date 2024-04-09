@@ -38,7 +38,6 @@ struct FollowerListView: View {
                 .navigationBarTitleDisplayMode(.large)
                 .searchable(
                     text: $viewModel.searchText,
-//                    isPresented: $viewModel.isShowingSearchBar,
                     placement: .navigationBarDrawer(displayMode: .always),
                     prompt: "Search for a username"
                 )
