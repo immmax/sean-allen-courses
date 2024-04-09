@@ -21,6 +21,7 @@ struct GFBodyLabel: View {
             .multilineTextAlignment(textAlignment)
             .lineLimit(numberOfLines)
             .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     init(_ text: String, textAlignment: TextAlignment = .leading, numberOfLines: Int = 1) {

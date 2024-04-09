@@ -16,7 +16,7 @@ import Observation
     var isLoading = false
     
     var isShowingUserInfo = false
-    var selectedFollower: Follower?
+    var user: User?
     
     var page = 1
     
@@ -26,7 +26,7 @@ import Observation
     // Published were above
     
     var filteredFollowers: [Follower] {
-        #warning("It searches only on the loaded pages! Not in all followers!")
+//        #warning("It searches only on the loaded pages! Not in all followers!")
         if searchText.isEmpty {
             return followers
         } else {
@@ -69,4 +69,35 @@ import Observation
         }
     }
     
+    func getUserInfo(username: String) {
+        isLoading = true
+        
+        Task {
+            do {
+                user = try await NetworkManager.shared.getUserInfo(for: username)
+                isLoading = false
+                isShowingUserInfo = true
+            } catch {
+                if let gfError = error as? GFError {
+                    switch gfError {
+                    case .invalidURL:
+                        alertItem = AlertContext.invalidURL
+                    case .invalidData:
+                        alertItem = AlertContext.invalidData
+                    case .emptyUsername:
+                        alertItem = AlertContext.emptyUsername
+                    case .unableToComplete:
+                        alertItem = AlertContext.unableToComplete
+                    case .invalidUsername:
+                        alertItem = AlertContext.invalidUsername
+                    case .genericError:
+                        alertItem = AlertContext.genericError
+                    }
+                } else {
+                    alertItem = AlertContext.genericError
+                }
+            }
+        }
+    }
+
 }

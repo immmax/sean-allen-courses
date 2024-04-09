@@ -21,6 +21,7 @@ struct GFSecondaryTitleLabel: View {
             .foregroundStyle(Color(.secondaryLabel))
             .minimumScaleFactor(0.9)
             .lineLimit(1)
+//            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     init(_ text: String, fontSize: CGFloat, systemImage: String = "") {

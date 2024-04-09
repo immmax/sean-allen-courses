@@ -16,6 +16,7 @@ struct FollowerCell: View {
         VStack(alignment: .center) {
             
             GFRemoteImage(urlString: follower.avatarUrl)
+                .modifier(CellImageStyle())
             
             Text(follower.login)
                 .font(.headline.bold())

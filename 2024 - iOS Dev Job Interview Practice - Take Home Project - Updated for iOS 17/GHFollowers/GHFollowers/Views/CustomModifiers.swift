@@ -16,6 +16,16 @@ struct  CellImageStyle: ViewModifier {
 }
 
 
+struct  UserInfoImageStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .scaledToFit()
+            .cornerRadius(10)
+            .frame(height: 100)
+    }
+}
+
+
 struct RoundedTextFieldStyle: TextFieldStyle {
     
     func _body(configuration: TextField<Self._Label>) -> some View {

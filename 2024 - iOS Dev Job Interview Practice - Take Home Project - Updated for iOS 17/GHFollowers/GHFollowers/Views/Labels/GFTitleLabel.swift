@@ -15,7 +15,7 @@ struct GFTitleLabel: View {
 
     
     var body: some View {
-//            .minimumScaleFactor(0.9)
+
         Text(text)
             .multilineTextAlignment(textAlignment)
             .font(.system(size: fontSize))
@@ -23,6 +23,7 @@ struct GFTitleLabel: View {
             .foregroundStyle(Color(.label))
             .lineLimit(1)
             .minimumScaleFactor(0.90)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     init(_ text: String, textAlignment: TextAlignment, fontSize: CGFloat) {

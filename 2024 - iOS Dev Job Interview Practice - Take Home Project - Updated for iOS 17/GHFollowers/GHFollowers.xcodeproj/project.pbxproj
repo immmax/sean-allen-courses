@@ -101,8 +101,8 @@
 		914310812BB401C400B4E42D /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				917AB16C2BB7CF2000F1A389 /* Model */,
 				917AB15F2BB7C52400F1A389 /* Utilities */,
+				917AB16C2BB7CF2000F1A389 /* Model */,
 				917AB15B2BB7C44A00F1A389 /* Views */,
 				917AB15A2BB7C3F800F1A389 /* Screens */,
 				914310822BB401C400B4E42D /* GHFollowersApp.swift */,
@@ -133,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				916CCE042BBD5E4C00AAE00E /* UserInfoView.swift */,
+				91AAFADB2BBEC2C50027003D /* GFUserInfoHeaderView.swift */,
 				916CCE072BBD6E5700AAE00E /* UserInfoViewModel.swift */,
 			);
 			path = UserInfoView;
@@ -159,7 +160,6 @@
 				914F3D4E2BB821C100D23E4C /* CustomModifiers.swift */,
 				916CCE002BBD34F700AAE00E /* LoadingView.swift */,
 				916CCE022BBD387000AAE00E /* GFEmptyStateView.swift */,
-				91AAFADB2BBEC2C50027003D /* GFUserInfoHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

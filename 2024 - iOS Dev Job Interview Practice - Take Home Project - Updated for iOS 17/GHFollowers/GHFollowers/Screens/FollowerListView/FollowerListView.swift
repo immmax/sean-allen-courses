@@ -19,15 +19,14 @@ struct FollowerListView: View {
                     LazyVGrid(columns: viewModel.columns) {
                         ForEach(viewModel.filteredFollowers) { follower in
                             FollowerCell(follower: follower)
-                                .onTapGesture {
-                                    viewModel.selectedFollower = follower
-                                    viewModel.isShowingUserInfo = true
-                                }
                                 .onAppear {
                                     if follower == viewModel.followers.last {
                                         viewModel.page += 1
                                         viewModel.getFollowers(username: username, page: viewModel.page)
                                     }
+                                }
+                                .onTapGesture {
+                                    viewModel.getUserInfo(username: follower.login)
                                 }
                         }
                     }
@@ -50,9 +49,8 @@ struct FollowerListView: View {
                 viewModel.getFollowers(username: username, page: viewModel.page)
             }
             .sheet(isPresented: $viewModel.isShowingUserInfo) {
-                UserInfoView(username: viewModel.selectedFollower!.login)
+                UserInfoView(user: viewModel.user!)
             }
-            
             
             if viewModel.isLoading {
                 
@@ -63,7 +61,7 @@ struct FollowerListView: View {
                 GFEmptyStateView(message: EmptyStatesContext.noFollowers)
                 
             } else if viewModel.filteredFollowers.isEmpty {
-                #warning("Shows while loading even if there are followers")
+//                #warning("Shows while loading even if there are followers")
                 ContentUnavailableView.search
                 
             }

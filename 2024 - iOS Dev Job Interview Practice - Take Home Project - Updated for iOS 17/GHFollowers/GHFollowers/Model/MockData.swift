@@ -25,4 +25,16 @@ struct MockData {
                                  following: 16,
                                  htmlUrl: "",
                                  createdAt: "")
+    
+    static let emptyUser = User(id: 0,
+                                 login: "EmptyUser",
+                                 avatarUrl: "",
+                                 name: "Empty User",
+                                 location: "No Location",
+                                 publicRepos: 0,
+                                 publicGists: 0,
+                                 followers: 0,
+                                 following: 0,
+                                 htmlUrl: "",
+                                 createdAt: "Never")
 }

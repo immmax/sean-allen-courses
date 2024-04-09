@@ -7,26 +7,38 @@
 
 import SwiftUI
 
+// TODO: add GitHub daily panel
+
 struct UserInfoView: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var viewModel = UserInfoViewModel()
 
-    var username: String
+    let user: User
     
     var body: some View {
         
         NavigationStack {
             
-            Text("Hello \(viewModel.user!.login)")
-                .toolbar { Button("Dismiss") { dismiss() } }
-                .onAppear { viewModel.getUserInfo(username: username) }
+            VStack(spacing: 20) {
+                GFUserInfoHeaderView(user: user ?? MockData.emptyUser)
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(maxHeight: 150)
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(maxHeight: 150)
+            }
+            
+            Spacer()
+                .toolbar { Button("Done") { dismiss() } }
+//                .onAppear { viewModel.getUserInfo(username: username) }
         }
+        .padding(.horizontal, 20)
+        .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .background(Color(.systemBackground))
-        
     }
 }
 
-#Preview {
-    UserInfoView(username: MockData.sampleFollower.login)
-}
+//#Preview {
+//    UserInfoView(username: MockData.sampleFollower.login)
+//}
