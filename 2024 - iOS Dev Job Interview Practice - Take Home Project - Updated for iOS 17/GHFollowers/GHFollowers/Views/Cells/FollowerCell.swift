@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct FollowerCell: View {
+    
     var follower: Follower
+    
     var body: some View {
+        
         VStack(alignment: .center) {
             
             GFRemoteImage(urlString: follower.avatarUrl)

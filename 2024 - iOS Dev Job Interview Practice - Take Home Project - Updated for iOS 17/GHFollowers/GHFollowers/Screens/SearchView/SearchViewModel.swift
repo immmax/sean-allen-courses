@@ -17,7 +17,6 @@ import Observation
     
     func showFollowersList() {
         guard !username.isEmpty else {
-            print("No username")
             alertItem  = AlertContext.emptyUsername
             return
         }

@@ -12,7 +12,6 @@ struct  CellImageStyle: ViewModifier {
         content
             .scaledToFit()
             .cornerRadius(10)
-//            .padding(10)
     }
 }
 

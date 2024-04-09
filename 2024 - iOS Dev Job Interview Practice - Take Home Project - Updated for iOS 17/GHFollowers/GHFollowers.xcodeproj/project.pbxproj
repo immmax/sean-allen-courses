@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911AF51A2BC3DCC500054E36 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911AF5192BC3DCC500054E36 /* GFTitleLabel.swift */; };
 		914310832BB401C400B4E42D /* GHFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914310822BB401C400B4E42D /* GHFollowersApp.swift */; };
 		914310852BB401C400B4E42D /* GFTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914310842BB401C400B4E42D /* GFTabView.swift */; };
 		914310872BB401C600B4E42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 914310862BB401C600B4E42D /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		911AF5192BC3DCC500054E36 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		9143107F2BB401C400B4E42D /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		914310822BB401C400B4E42D /* GHFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowersApp.swift; sourceTree = "<group>"; };
 		914310842BB401C400B4E42D /* GFTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabView.swift; sourceTree = "<group>"; };
@@ -253,8 +255,9 @@
 		91AAFADD2BBEC3500027003D /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				91AAFADE2BBEC3630027003D /* GFSecondaryTitleLabel.swift */,
+				911AF5192BC3DCC500054E36 /* GFTitleLabel.swift */,
 				91AAFAE02BBECE630027003D /* GFBodyLabel.swift */,
+				91AAFADE2BBEC3630027003D /* GFSecondaryTitleLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				917AB1772BB8151F00F1A389 /* FollowerCell.swift in Sources */,
 				914310932BB4057800B4E42D /* FavoritesListView.swift in Sources */,
 				917AB1682BB7C67200F1A389 /* FavoritesListViewModel.swift in Sources */,
+				911AF51A2BC3DCC500054E36 /* GFTitleLabel.swift in Sources */,
 				917AB1732BB7F12100F1A389 /* NetworkManager.swift in Sources */,
 				91AAFAE32BBF2AC30027003D /* Constants.swift in Sources */,
 				914F3D4F2BB821C100D23E4C /* CustomModifiers.swift in Sources */,
