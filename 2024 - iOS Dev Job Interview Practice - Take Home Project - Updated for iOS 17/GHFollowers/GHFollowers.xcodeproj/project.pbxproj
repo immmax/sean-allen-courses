@@ -43,6 +43,7 @@
 		91DFE5792BC6A72000D90AC5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE5782BC6A72000D90AC5 /* SafariView.swift */; };
 		91DFE57B2BC6AF3E00D90AC5 /* GFRepoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */; };
 		91DFE57D2BC6AFD900D90AC5 /* GFFollowerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */; };
+		91DFE57F2BC6C6C900D90AC5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57E2BC6C6C900D90AC5 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		91DFE5782BC6A72000D90AC5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemView.swift; sourceTree = "<group>"; };
 		91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemView.swift; sourceTree = "<group>"; };
+		91DFE57E2BC6C6C900D90AC5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				917AB1722BB7F12100F1A389 /* NetworkManager.swift */,
+				91DFE57E2BC6C6C900D90AC5 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				917AB16A2BB7C68300F1A389 /* FollowerListViewModel.swift in Sources */,
+				91DFE57F2BC6C6C900D90AC5 /* PersistenceManager.swift in Sources */,
 				917AB1752BB7F51B00F1A389 /* GFError.swift in Sources */,
 				9126F3E62BC560D8005D4F8C /* Date+Ext.swift in Sources */,
 				9126F3E02BC545D7005D4F8C /* GFItemInfoView.swift in Sources */,
