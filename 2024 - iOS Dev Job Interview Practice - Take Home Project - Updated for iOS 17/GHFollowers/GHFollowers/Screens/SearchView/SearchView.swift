@@ -45,6 +45,9 @@ struct SearchView: View {
                       message: alertItem.message,
                       dismissButton: alertItem.dismissButton)
             }
+            .onAppear {
+                viewModel.username = ""
+            }
         }
     }
 }
