@@ -34,6 +34,11 @@ struct FollowerListView: View {
                     .transition(.identity)
                 }
                 .padding(12)
+                .toolbar {
+                    Button(action: { viewModel.addButtonTapped() }) {
+                        Label("Add", systemImage: "plus")
+                    }
+                }
                 .navigationTitle(username)
                 .navigationBarTitleDisplayMode(.large)
                 .searchable(

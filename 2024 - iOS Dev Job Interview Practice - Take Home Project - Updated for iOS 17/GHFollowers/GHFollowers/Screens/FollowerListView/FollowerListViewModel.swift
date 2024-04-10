@@ -96,5 +96,10 @@ import Observation
             }
         }
     }
+    
+    func addButtonTapped() {
+        // more code to come
+        print("Add button tapped")
+    }
 
 }
