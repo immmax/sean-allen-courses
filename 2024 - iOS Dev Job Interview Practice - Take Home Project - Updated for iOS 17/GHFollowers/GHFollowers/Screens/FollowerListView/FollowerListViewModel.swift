@@ -43,21 +43,8 @@ import Observation
                 followers.append(contentsOf: newPageOfFollowers)
                 isLoading = false
             } catch {
-                if let gfError = error as? GFError {
-                    switch gfError {
-                    case .invalidURL:
-                        alertItem = AlertContext.invalidURL
-                    case .invalidData:
-                        alertItem = AlertContext.invalidData
-                    case .emptyUsername:
-                        alertItem = AlertContext.emptyUsername
-                    case .unableToComplete:
-                        alertItem = AlertContext.unableToComplete
-                    case .invalidUsername:
-                        alertItem = AlertContext.invalidUsername
-                    case .genericError:
-                        alertItem = AlertContext.genericError
-                    }
+                if error is GFError {
+                    handleErrors(error as! GFError)
                 } else {
                     alertItem = AlertContext.genericError
                 }
@@ -75,21 +62,8 @@ import Observation
                 isLoading = false
                 isShowingUserInfo = true
             } catch {
-                if let gfError = error as? GFError {
-                    switch gfError {
-                    case .invalidURL:
-                        alertItem = AlertContext.invalidURL
-                    case .invalidData:
-                        alertItem = AlertContext.invalidData
-                    case .emptyUsername:
-                        alertItem = AlertContext.emptyUsername
-                    case .unableToComplete:
-                        alertItem = AlertContext.unableToComplete
-                    case .invalidUsername:
-                        alertItem = AlertContext.invalidUsername
-                    case .genericError:
-                        alertItem = AlertContext.genericError
-                    }
+                if error is GFError {
+                    handleErrors(error as! GFError)
                 } else {
                     alertItem = AlertContext.genericError
                 }
@@ -102,4 +76,26 @@ import Observation
         print("Add button tapped")
     }
 
+    func handleErrors(_ error: GFError) {
+        switch error {
+        case .invalidURL:
+            alertItem = AlertContext.invalidURL
+        case .invalidData:
+            alertItem = AlertContext.invalidData
+        case .emptyUsername:
+            alertItem = AlertContext.emptyUsername
+        case .unableToComplete:
+            alertItem = AlertContext.unableToComplete
+        case .invalidUsername:
+            alertItem = AlertContext.invalidUsername
+        case .noFollowers:
+            alertItem = AlertContext.noFollowers
+        case .genericError:
+            alertItem = AlertContext.genericError
+        case .unableToFavorite:
+            alertItem = AlertContext.unableToFavorite
+        case .alreadyInFavorites:
+            alertItem = AlertContext.alreadyInFavorites
+        }
+    }
 }

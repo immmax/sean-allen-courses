@@ -47,9 +47,22 @@ struct AlertContext {
         message: Text("Unable to complete your request at this time. Please check your internet connection."),
         dismissButton: .default(Text("OK"))
     )
+    
     static let noFollowers = AlertItem(
         title: Text("No Followers"),
         message: Text("This user has no followers. What a shame 😞."),
+        dismissButton: .default(Text("OK"))
+    )
+    
+    static let unableToFavorite = AlertItem(
+        title: Text("Oops!"),
+        message: Text("There was an error favoriting this user. Please try again"),
+        dismissButton: .default(Text("OK"))
+    )
+    
+    static let alreadyInFavorites = AlertItem(
+        title: Text("Oh, wow!"),
+        message: Text("You've already favorited this user. You must REALLY like them!"),
         dismissButton: .default(Text("OK"))
     )
     
