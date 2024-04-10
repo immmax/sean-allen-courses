@@ -13,8 +13,8 @@ struct UserInfoView: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var viewModel = UserInfoViewModel()
-
     let user: User
+    var delegate: FollowerListViewDelegate!
     
     var body: some View {
         
@@ -23,30 +23,22 @@ struct UserInfoView: View {
             VStack(spacing: 20) {
                 GFUserInfoHeaderView(user: user)
                 
-                GFInfoCardView(
-                    user: user,
-                    itemInfoOneType: .repos,
-                    countOne: user.publicRepos,
-                    itemInfoTwoType: .gists,
-                    countTwo: user.publicGists,
-                    buttonTitle: "GitHub Profile",
-                    backgroundColor: Color(.systemPurple)
-                )
+                GFRepoItemView(user: user, delegate: self)
                 
-                GFInfoCardView(
-                    user: user,
-                    itemInfoOneType: .followers,
-                    countOne: user.followers,
-                    itemInfoTwoType: .following,
-                    countTwo: user.following,
-                    buttonTitle: "Get Followers",
-                    backgroundColor: Color(.systemGreen)
-                )
+                GFFollowerItemView(user: user, delegate: self)
                 
                 Text("GitHub since \(user.createdAt.convertToDisplayFormat())")
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .toolbar { Button("Done") { dismiss() } }
+        }
+        .fullScreenCover(isPresented: $viewModel.isShowingSafari) {
+            SafariView(url: URL(string: user.htmlUrl)!)
+        }
+        .alert(item: $viewModel.alertItem) { alert in
+            Alert(title: alert.title,
+                  message: alert.message,
+                  dismissButton: alert.dismissButton)
         }
         .padding(.horizontal, 20)
         .redacted(reason: viewModel.isLoading ? .placeholder : [])
@@ -54,6 +46,33 @@ struct UserInfoView: View {
     }
 }
 
-#Preview {
-    UserInfoView(user: MockData.sampleUser)
+//#Preview {
+//    UserInfoView(user: MockData.sampleUser, delegate: )
+//}
+
+protocol UserInfoViewDelegate {
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
+
+extension UserInfoView: UserInfoViewDelegate {
+    func didTapGitHubProfile(for user: User) {
+        guard URL(string: user.htmlUrl) != nil else {
+            viewModel.alertItem = AlertContext.invalidURL
+            return
+        }
+        
+        viewModel.isShowingSafari = true
+    }
+    
+    func didTapGetFollowers(for user: User) -> Void {
+        guard user.followers != 0 else {
+            viewModel.alertItem = AlertContext.noFollowers
+            return
+        }
+        delegate.didRequestFollowers(for: user.login)
+        dismiss()
+    }
+    
+    
 }

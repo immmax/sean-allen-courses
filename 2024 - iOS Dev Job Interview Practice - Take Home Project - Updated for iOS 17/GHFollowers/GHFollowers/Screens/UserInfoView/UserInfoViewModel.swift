@@ -11,6 +11,7 @@ import Observation
 @Observable final class UserInfoViewModel {
     var isLoading = false
     var alertItem: AlertItem?
+    var isShowingSafari = false
     
     init(alertItem: AlertItem? = nil) {
         self.alertItem = alertItem

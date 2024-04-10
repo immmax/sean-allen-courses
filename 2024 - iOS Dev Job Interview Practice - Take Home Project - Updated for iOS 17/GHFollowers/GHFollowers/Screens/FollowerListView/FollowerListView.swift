@@ -10,7 +10,7 @@ import SwiftUI
 struct FollowerListView: View {
     @State private var viewModel = FollowersListViewModel()
     
-    var username: String
+    @State var username: String
     
     var body: some View {
         ZStack {
@@ -48,7 +48,7 @@ struct FollowerListView: View {
                 viewModel.getFollowers(username: username, page: viewModel.page)
             }
             .sheet(isPresented: $viewModel.isShowingUserInfo) {
-                UserInfoView(user: viewModel.user!)
+                UserInfoView(user: viewModel.user!, delegate: self)
             }
             
             if viewModel.isLoading {
@@ -76,5 +76,18 @@ struct FollowerListView: View {
 }
 
 #Preview {
-    FollowerListView(username: "SAllen0400")
+    FollowerListView(username: "")
+}
+
+protocol FollowerListViewDelegate {
+    func didRequestFollowers(for username: String)
+}
+
+extension FollowerListView: FollowerListViewDelegate {
+    func didRequestFollowers(for username: String) {
+        self.username = username
+        viewModel.followers.removeAll()
+        viewModel.page = 1
+        viewModel.getFollowers(username: username, page: viewModel.page)
+    }
 }

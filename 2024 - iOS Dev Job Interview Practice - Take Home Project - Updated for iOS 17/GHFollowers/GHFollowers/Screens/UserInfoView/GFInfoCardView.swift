@@ -15,19 +15,20 @@ protocol CardView: View {
     var countTwo: Int { get }
     var buttonTitle: LocalizedStringKey { get }
     var backgroundColor: Color { get }
+    var action: () -> Void { get }
 }
 
 
 struct GFInfoCardView: CardView {
     
-    let user: User
-    let itemInfoOneType: ItemInfoType
-    let countOne: Int
-    let itemInfoTwoType: ItemInfoType
-    let countTwo: Int
-    let buttonTitle: LocalizedStringKey
+    var user: User
+    var itemInfoOneType: ItemInfoType
+    var countOne: Int
+    var itemInfoTwoType: ItemInfoType
+    var countTwo: Int
+    var buttonTitle: LocalizedStringKey
     var backgroundColor: Color
-    
+    var action: () -> Void
     
     var body: some View {
         VStack {
@@ -39,9 +40,7 @@ struct GFInfoCardView: CardView {
                                withCount: countTwo)
             }
             
-            Button {
-                // action
-            } label: {
+            Button(action: action) {
                 GFButton(buttonTitle, backgroundColor: backgroundColor)
             }
         }
@@ -60,6 +59,7 @@ struct GFInfoCardView: CardView {
         itemInfoTwoType: .following,
         countTwo: 11,
         buttonTitle: "Continue",
-        backgroundColor: .blue
+        backgroundColor: .blue,
+        action: {}
     )
 }
