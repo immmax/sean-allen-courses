@@ -40,6 +40,9 @@
 		91AAFAE32BBF2AC30027003D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAFAE22BBF2AC30027003D /* Constants.swift */; };
 		91BCC71D2BB4A3CD00E92579 /* FollowerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BCC71C2BB4A3CD00E92579 /* FollowerListView.swift */; };
 		91BCC71F2BB78FA900E92579 /* GFAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BCC71E2BB78FA900E92579 /* GFAlert.swift */; };
+		91DFE5792BC6A72000D90AC5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE5782BC6A72000D90AC5 /* SafariView.swift */; };
+		91DFE57B2BC6AF3E00D90AC5 /* GFRepoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */; };
+		91DFE57D2BC6AFD900D90AC5 /* GFFollowerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		91AAFAE22BBF2AC30027003D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		91BCC71C2BB4A3CD00E92579 /* FollowerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListView.swift; sourceTree = "<group>"; };
 		91BCC71E2BB78FA900E92579 /* GFAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlert.swift; sourceTree = "<group>"; };
+		91DFE5782BC6A72000D90AC5 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemView.swift; sourceTree = "<group>"; };
+		91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		914310812BB401C400B4E42D /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				91DFE5772BC6A71100D90AC5 /* UIKit Components */,
 				917AB15F2BB7C52400F1A389 /* Utilities */,
 				917AB16C2BB7CF2000F1A389 /* Model */,
 				917AB15B2BB7C44A00F1A389 /* Views */,
@@ -145,6 +152,8 @@
 				91AAFADB2BBEC2C50027003D /* GFUserInfoHeaderView.swift */,
 				9126F3DF2BC545D7005D4F8C /* GFItemInfoView.swift */,
 				9126F3E12BC54D08005D4F8C /* GFInfoCardView.swift */,
+				91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */,
+				91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */,
 			);
 			path = UserInfoView;
 			sourceTree = "<group>";
@@ -274,6 +283,14 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		91DFE5772BC6A71100D90AC5 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				91DFE5782BC6A72000D90AC5 /* SafariView.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,6 +375,8 @@
 				914F3D4F2BB821C100D23E4C /* CustomModifiers.swift in Sources */,
 				91AAFADC2BBEC2C50027003D /* GFUserInfoHeaderView.swift in Sources */,
 				9126F3E22BC54D08005D4F8C /* GFInfoCardView.swift in Sources */,
+				91DFE57D2BC6AFD900D90AC5 /* GFFollowerItemView.swift in Sources */,
+				91DFE57B2BC6AF3E00D90AC5 /* GFRepoItemView.swift in Sources */,
 				91AAFAE12BBECE630027003D /* GFBodyLabel.swift in Sources */,
 				91BCC71D2BB4A3CD00E92579 /* FollowerListView.swift in Sources */,
 				916CCE0A2BBD6F7400AAE00E /* MockData.swift in Sources */,
@@ -372,6 +391,7 @@
 				916CCE032BBD387000AAE00E /* GFEmptyStateView.swift in Sources */,
 				914F3D4D2BB81DD000D23E4C /* GFAvatarImage.swift in Sources */,
 				914310912BB4056E00B4E42D /* SearchView.swift in Sources */,
+				91DFE5792BC6A72000D90AC5 /* SafariView.swift in Sources */,
 				914310832BB401C400B4E42D /* GHFollowersApp.swift in Sources */,
 				916CCE012BBD34F700AAE00E /* LoadingView.swift in Sources */,
 				916CCE052BBD5E4C00AAE00E /* UserInfoView.swift in Sources */,

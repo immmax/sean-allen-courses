@@ -47,6 +47,11 @@ struct AlertContext {
         message: Text("Unable to complete your request at this time. Please check your internet connection."),
         dismissButton: .default(Text("OK"))
     )
+    static let noFollowers = AlertItem(
+        title: Text("No Followers"),
+        message: Text("This user has no followers. What a shame 😞."),
+        dismissButton: .default(Text("OK"))
+    )
     
     // MARK: - Generic Alerts
     static let genericError = AlertItem(
