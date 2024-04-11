@@ -15,6 +15,7 @@ struct AlertItem: Identifiable {
 }
 
 struct AlertContext {
+    
     // MARK: - Username Alerts
     static let emptyUsername = AlertItem(
         title: Text("Empty username"),
@@ -33,38 +34,47 @@ struct AlertContext {
     static let invalidURL = AlertItem(
         title: Text("Server Error"),
         message: Text("There was an issue connecting to the server. If this persists, please contact support"),
-        dismissButton: .default(Text("OK"))
+        dismissButton: .default(Text("Ok"))
     )
     
     static let invalidData = AlertItem(
         title: Text("Server Error"),
         message: Text("The data received from the server was invalid. Please contact Support"),
-        dismissButton: .default(Text("OK"))
+        dismissButton: .default(Text("Ok"))
     )
     
     static let unableToComplete = AlertItem(
         title: Text("Server Error"),
         message: Text("Unable to complete your request at this time. Please check your internet connection."),
-        dismissButton: .default(Text("OK"))
+        dismissButton: .default(Text("Ok"))
     )
     
     static let noFollowers = AlertItem(
         title: Text("No Followers"),
         message: Text("This user has no followers. What a shame 😞."),
-        dismissButton: .default(Text("OK"))
+        dismissButton: .default(Text("Ok"))
     )
     
+    
+    // MARK: - Favorite Alerts
     static let unableToFavorite = AlertItem(
         title: Text("Oops!"),
         message: Text("There was an error favoriting this user. Please try again"),
-        dismissButton: .default(Text("OK"))
+        dismissButton: .default(Text("Ok"))
     )
     
     static let alreadyInFavorites = AlertItem(
         title: Text("Oh, wow!"),
         message: Text("You've already favorited this user. You must REALLY like them!"),
-        dismissButton: .default(Text("OK"))
+        dismissButton: .default(Text("Ok"))
     )
+    
+    static let successfullyFavorited = AlertItem(
+        title: Text("Success"),
+        message: Text("You have successfully favorited this user. 🎉"),
+        dismissButton: .default(Text("Hooray!"))
+    )
+    
     
     // MARK: - Generic Alerts
     static let genericError = AlertItem(
