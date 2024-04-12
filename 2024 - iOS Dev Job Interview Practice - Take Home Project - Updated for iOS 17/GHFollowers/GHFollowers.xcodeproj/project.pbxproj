@@ -44,6 +44,7 @@
 		91DFE57B2BC6AF3E00D90AC5 /* GFRepoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */; };
 		91DFE57D2BC6AFD900D90AC5 /* GFFollowerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */; };
 		91DFE57F2BC6C6C900D90AC5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE57E2BC6C6C900D90AC5 /* PersistenceManager.swift */; };
+		91DFE5812BC8EEAB00D90AC5 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DFE5802BC8EEAB00D90AC5 /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		91DFE57A2BC6AF3E00D90AC5 /* GFRepoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemView.swift; sourceTree = "<group>"; };
 		91DFE57C2BC6AFD900D90AC5 /* GFFollowerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemView.swift; sourceTree = "<group>"; };
 		91DFE57E2BC6C6C900D90AC5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		91DFE5802BC8EEAB00D90AC5 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				917AB1762BB8151F00F1A389 /* FollowerCell.swift */,
+				91DFE5802BC8EEAB00D90AC5 /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				914310912BB4056E00B4E42D /* SearchView.swift in Sources */,
 				91DFE5792BC6A72000D90AC5 /* SafariView.swift in Sources */,
 				914310832BB401C400B4E42D /* GHFollowersApp.swift in Sources */,
+				91DFE5812BC8EEAB00D90AC5 /* FavoriteCell.swift in Sources */,
 				916CCE012BBD34F700AAE00E /* LoadingView.swift in Sources */,
 				916CCE052BBD5E4C00AAE00E /* UserInfoView.swift in Sources */,
 			);

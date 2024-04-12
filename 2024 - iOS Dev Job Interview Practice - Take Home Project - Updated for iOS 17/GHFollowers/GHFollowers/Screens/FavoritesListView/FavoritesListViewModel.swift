@@ -6,3 +6,13 @@
 //
 
 import SwiftUI
+import Observation
+
+@Observable class FavoritesListViewModel {
+    
+    var favorites: [Follower] = []
+    
+    func getFavorites() {
+        favorites = try! PersistenceManager.retrieveFavorites()
+    }
+}
