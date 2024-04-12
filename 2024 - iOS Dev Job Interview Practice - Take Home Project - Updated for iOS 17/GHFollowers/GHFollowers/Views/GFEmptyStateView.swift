@@ -9,7 +9,13 @@ import SwiftUI
 
 struct GFEmptyStateView: View {
     
-    let message: String?
+    let message: String
+    
+    
+    init(message: String = "") {
+        self.message = message
+    }
+    
     
     var body: some View {
         ZStack {
@@ -17,7 +23,7 @@ struct GFEmptyStateView: View {
                 .resizable()
                 .modifier(EmptyStateImageStyle())
             
-            Text(message ?? "")
+            Text(message)
                 .modifier(EmptyStateLabelStyle())
         }
         .ignoresSafeArea()

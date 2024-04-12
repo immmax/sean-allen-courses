@@ -23,7 +23,8 @@ struct GFRepoItemView: View {
                        itemInfoTwoType: .gists,
                        countTwo:        user.publicGists,
                        buttonTitle:     "GitHub Profile",
-                       backgroundColor: Color(.systemPurple),
+                       systemImageName: SFSymbols.GitHubProfileButton,
+                       color:           .purple,
                        action:          { delegate.didTapGitHubProfile(for: user) }
         )
     }

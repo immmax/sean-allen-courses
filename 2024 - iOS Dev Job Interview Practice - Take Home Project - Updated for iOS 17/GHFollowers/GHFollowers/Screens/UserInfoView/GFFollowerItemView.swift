@@ -23,7 +23,8 @@ struct GFFollowerItemView: View {
                        itemInfoTwoType: .following,
                        countTwo:        user.following,
                        buttonTitle:     "Get Followers",
-                       backgroundColor: Color(.systemGreen),
+                       systemImageName: SFSymbols.getFollowersButton,
+                       color:           .green,
                        action:          { delegate.didTapGetFollowers(for: user) }
         )
     }

@@ -30,13 +30,11 @@ struct SearchView: View {
                 #warning("Consider not using Spacer.")
                 Spacer()
                 
-                Button {
+                GFButton("Get Followers", systemImageName: SFSymbols.getFollowersButton, color: .green) {
                     viewModel.showFollowersList()
-                } label: {
-                    GFButton("Get Followers")
-                        .padding(.bottom, 60)
-                        .padding(.horizontal, 50)
                 }
+                .padding(.bottom, 60)
+                .padding(.horizontal, 40)
             }
             .background(Color(.systemBackground))
             .toolbar(.hidden)

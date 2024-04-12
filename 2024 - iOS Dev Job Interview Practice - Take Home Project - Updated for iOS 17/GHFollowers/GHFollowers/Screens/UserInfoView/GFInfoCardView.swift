@@ -16,7 +16,8 @@ protocol CardView: View {
     var itemInfoTwoType: ItemInfoType { get }
     var countTwo:        Int { get }
     var buttonTitle:     LocalizedStringKey { get }
-    var backgroundColor: Color { get }
+    var systemImageName: String {get}
+    var color:           Color { get }
     var action:          () -> Void { get }
 }
 
@@ -29,7 +30,8 @@ struct GFInfoCardView: CardView {
     var itemInfoTwoType: ItemInfoType
     var countTwo:        Int
     var buttonTitle:     LocalizedStringKey
-    var backgroundColor: Color
+    var systemImageName: String
+    var color:           Color
     var action:          () -> Void
     
     var body: some View {
@@ -38,7 +40,7 @@ struct GFInfoCardView: CardView {
                 GFItemInfoView(itemInfoType: itemInfoOneType, withCount: countOne)
                 GFItemInfoView(itemInfoType: itemInfoTwoType, withCount: countTwo)
             }
-            Button(action: action) { GFButton(buttonTitle, backgroundColor: backgroundColor) }
+            GFButton(buttonTitle, systemImageName: systemImageName, color: color, action: action)
         }
         .padding(20)
         .frame(maxHeight: 140)
@@ -55,7 +57,8 @@ struct GFInfoCardView: CardView {
                    itemInfoTwoType: .following,
                    countTwo:        11,
                    buttonTitle:     "Continue",
-                   backgroundColor: .blue,
+                   systemImageName: SFSymbols.getFollowersButton,
+                   color:           .blue,
                    action:          {}
     )
 }
