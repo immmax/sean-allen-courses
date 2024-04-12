@@ -34,9 +34,9 @@ enum PersistenceManager {
                 retrievedFavorites.removeAll { $0.login == favorite.login }
             }
             
-            try save(favorites: favorites)
+            try save(favorites: retrievedFavorites)
         } catch {
-            throw GFError.unableToComplete
+            throw error
         }
     }
     
