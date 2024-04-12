@@ -24,7 +24,7 @@ struct MockData {
                                  followers: 25,
                                  following: 16,
                                  htmlUrl: "",
-                                 createdAt: "")
+                                 createdAt: .now)
     
     static let emptyUser = User(id: 0,
                                  login: "EmptyUser",
@@ -36,5 +36,5 @@ struct MockData {
                                  followers: 0,
                                  following: 0,
                                  htmlUrl: "",
-                                 createdAt: "Never")
+                                createdAt: .distantPast)
 }

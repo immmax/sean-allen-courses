@@ -27,7 +27,7 @@ struct UserInfoView: View {
                 
                 GFFollowerItemView(user: user, delegate: self)
                 
-                Text("GitHub since \(user.createdAt.convertToDisplayFormat())")
+                Text("GitHub since \(user.createdAt.convertToMonthYearFormat())")
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .toolbar { Button("Done") { dismiss() } }

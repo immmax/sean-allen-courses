@@ -35,7 +35,7 @@ struct GFUserInfoHeaderView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.bottom, 10)
-//            #warning("Need to delete \r and \n symbols from the string")
+            #warning("Need to delete \r and \n symbols from the string")
             Text(user.bio?.trimmingCharacters(in: ["\n", "\r", "\t", " "]) ?? "No bio available")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(3, reservesSpace: false)

@@ -24,7 +24,7 @@ import Observation
     // Published were above
     
     var filteredFollowers: [Follower] {
-        //        #warning("It searches only on the loaded pages! Not in all followers!")
+    #warning("It searches only on the loaded pages! Not in all followers!")
         if searchText.isEmpty {
             return followers
         } else {

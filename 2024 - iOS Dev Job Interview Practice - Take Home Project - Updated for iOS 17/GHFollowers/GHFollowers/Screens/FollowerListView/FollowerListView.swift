@@ -58,17 +58,12 @@ struct FollowerListView: View {
             }
             
             if viewModel.isLoading {
-                
                 LoadingView()
-                
             } else if viewModel.followers.isEmpty {
-                
                 GFEmptyStateView(message: EmptyStatesContext.noFollowers)
-                
             } else if viewModel.filteredFollowers.isEmpty {
-//                #warning("Shows while loading even if there are followers")
+                #warning("Shows while loading even if there are followers")
                 ContentUnavailableView.search
-                
             }
         }
         .alert(item: $viewModel.alertItem) { alertItem in
