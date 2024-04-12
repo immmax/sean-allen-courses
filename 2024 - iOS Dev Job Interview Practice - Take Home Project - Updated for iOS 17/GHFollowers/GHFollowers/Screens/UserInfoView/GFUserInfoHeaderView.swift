@@ -31,6 +31,7 @@ struct GFUserInfoHeaderView: View {
                     Label(user.location ?? "No Location", systemImage: SFSymbols.location)
                         .font(.title3)
                         .foregroundStyle(.secondary)
+                        .lineLimit(1)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }

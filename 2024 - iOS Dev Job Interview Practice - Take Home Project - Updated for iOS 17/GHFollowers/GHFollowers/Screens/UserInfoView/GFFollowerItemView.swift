@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+protocol GFFollowerViewDelegate {
+    func didTapGetFollowers(for user: User)
+}
+
 struct GFFollowerItemView: View {
     let user: User
-    var delegate: UserInfoViewDelegate
+    var delegate: GFFollowerViewDelegate
     
     var body: some View {
         GFInfoCardView(

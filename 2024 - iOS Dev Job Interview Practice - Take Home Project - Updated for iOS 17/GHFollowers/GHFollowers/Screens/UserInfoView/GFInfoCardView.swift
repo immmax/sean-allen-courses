@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 protocol CardView: View {
     var user: User { get }
     var itemInfoOneType: ItemInfoType { get }

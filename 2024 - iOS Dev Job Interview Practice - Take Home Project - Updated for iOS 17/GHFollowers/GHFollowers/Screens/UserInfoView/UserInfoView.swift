@@ -9,12 +9,18 @@ import SwiftUI
 
 // TODO: add GitHub daily panel
 
+
+protocol UserInfoViewDelegate {
+    func didRequestFollowers(for username: String)
+}
+
+
 struct UserInfoView: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var viewModel = UserInfoViewModel()
     let user: User
-    var delegate: FollowerListViewDelegate!
+    var delegate: UserInfoViewDelegate!
     
     var body: some View {
         
@@ -50,12 +56,7 @@ struct UserInfoView: View {
 //    UserInfoView(user: MockData.sampleUser, delegate: )
 //}
 
-protocol UserInfoViewDelegate {
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
-}
-
-extension UserInfoView: UserInfoViewDelegate {
+extension UserInfoView: GFRepoItemViewDelegate {
     func didTapGitHubProfile(for user: User) {
         guard URL(string: user.htmlUrl) != nil else {
             viewModel.alertItem = AlertContext.invalidURL
@@ -64,6 +65,9 @@ extension UserInfoView: UserInfoViewDelegate {
         
         viewModel.isShowingSafari = true
     }
+}
+
+extension UserInfoView: GFFollowerViewDelegate {
     
     func didTapGetFollowers(for user: User) -> Void {
         guard user.followers != 0 else {
@@ -73,6 +77,4 @@ extension UserInfoView: UserInfoViewDelegate {
         delegate.didRequestFollowers(for: user.login)
         dismiss()
     }
-    
-    
 }

@@ -81,11 +81,9 @@ struct FollowerListView: View {
     FollowerListView(username: "")
 }
 
-protocol FollowerListViewDelegate {
-    func didRequestFollowers(for username: String)
-}
 
-extension FollowerListView: FollowerListViewDelegate {
+
+extension FollowerListView: UserInfoViewDelegate {
     func didRequestFollowers(for username: String) {
         self.username = username
         viewModel.followers.removeAll()

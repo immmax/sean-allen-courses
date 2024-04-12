@@ -20,21 +20,20 @@ enum PersistenceManager {
     }
     
     
-    static func updateWith(favorite: Follower, actionType: PersistenceActionType) throws {
+    static func updateWith(favorite: Follower, actionType: PersistenceActionType) throws -> Void {
         do {
-            let favorites = try retrieveFavorites()
-            var retrievedFavorites = favorites
+            var favorites = try retrieveFavorites()
             
             switch actionType {
             case .add:
-                guard !retrievedFavorites.contains(favorite) else { throw GFError.alreadyInFavorites}
+                guard !favorites.contains(favorite) else { throw GFError.alreadyInFavorites}
                 
-                retrievedFavorites.append(favorite)
+                favorites.append(favorite)
             case .remove:
-                retrievedFavorites.removeAll { $0.login == favorite.login }
+                favorites.removeAll { $0.login == favorite.login }
             }
             
-            try save(favorites: retrievedFavorites)
+            try save(favorites: favorites)
         } catch {
             throw error
         }
@@ -42,7 +41,7 @@ enum PersistenceManager {
     
     
     static func retrieveFavorites() throws -> [Follower] {
-        guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else {
+        guard let favoritesData = defaults.data(forKey: Keys.favorites) else {
             return []
         }
         
@@ -52,12 +51,10 @@ enum PersistenceManager {
         } catch {
             throw GFError.unableToFavorite
         }
-        
     }
     
     
     static func save(favorites: [Follower]) throws {
-        
         do {
             let encodedFavorites =  try JSONEncoder().encode(favorites)
             defaults.setValue(encodedFavorites, forKey: Keys.favorites)

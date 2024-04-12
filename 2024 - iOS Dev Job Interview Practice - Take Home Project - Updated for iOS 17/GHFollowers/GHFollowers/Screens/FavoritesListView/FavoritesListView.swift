@@ -14,34 +14,33 @@ struct FavoritesListView: View {
     var body: some View {
         NavigationStack {
             
-            if viewModel.favorites.isEmpty {
-                GFEmptyStateView(message: "No favorites?\nAdd one on the follower screen.")
-                    .navigationTitle("Favorites")
-            } else {
+            ZStack  {
+                
                 List {
                     ForEach(viewModel.favorites) { favoriteUser in
                         NavigationLink(destination: FollowerListView(username: favoriteUser.login)) {
                             FavoriteCell(favorite: favoriteUser)
                         }
-                        .swipeActions {
-                            Button("Delete", systemImage: "trash", role: .destructive) {
-                                try? PersistenceManager.updateWith(favorite: favoriteUser, actionType: .remove)
-                                print(viewModel.favorites)
-                            }
-                            .tint(.red)
-                        }
                     }
-//                    .onDelete(perform: { indexSet in
-//                        viewModel.favorites.remove(atOffsets: indexSet)
-//                    } )
+                    .onDelete { indexSet in
+                        viewModel.favorites.remove(atOffsets: indexSet)
+                        try? PersistenceManager.save(favorites: viewModel.favorites)
+                    }
                     .listRowSeparator(.hidden)
                 }
-                .animation(.default, value: viewModel.favorites)
-                .transition(.opacity)
-                .navigationTitle("Favorites")
+                .listStyle(.plain)
+                .toolbar {
+                    EditButton()
+                }
+                
+                if viewModel.favorites.isEmpty {
+                    GFEmptyStateView(message: "No favorites?\nAdd one on the follower screen.")
+                        .navigationTitle("Favorites")
+                }
             }
+            .navigationTitle("Favorites")
+            .onAppear { viewModel.getFavorites() }
         }
-        .task { viewModel.getFavorites() }
     }
 }
 
@@ -50,3 +49,4 @@ struct FavoritesListView: View {
 }
 
 
+// TODO: - Лучше вместо + сделать ♥️. Если пользователь уже в избранном - закрашивать его. Если надо убрать из избранного - спрашивать, действительно ли хочешь убрать

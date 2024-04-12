@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+protocol GFRepoItemViewDelegate {
+    func didTapGitHubProfile(for user: User)
+}
+
 struct GFRepoItemView: View {
     let user: User
-    var delegate: UserInfoViewDelegate
+    var delegate: GFRepoItemViewDelegate
     
     var body: some View {
         GFInfoCardView(
