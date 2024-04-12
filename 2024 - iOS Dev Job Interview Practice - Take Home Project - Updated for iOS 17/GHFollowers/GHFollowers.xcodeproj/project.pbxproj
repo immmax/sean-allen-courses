@@ -166,9 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				917AB1622BB7C58F00F1A389 /* SearchView */,
-				917AB1632BB7C59E00F1A389 /* FavoritesListView */,
 				917AB1642BB7C5A900F1A389 /* FollowerListView */,
 				916CCE062BBD5E5300AAE00E /* UserInfoView */,
+				917AB1632BB7C59E00F1A389 /* FavoritesListView */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

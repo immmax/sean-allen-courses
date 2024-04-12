@@ -10,6 +10,10 @@ import SwiftUI
 struct SearchView: View {
     @State private  var viewModel = SearchViewModel()
     
+    init() {
+        UITextField.appearance().clearButtonMode = .whileEditing
+    }
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
