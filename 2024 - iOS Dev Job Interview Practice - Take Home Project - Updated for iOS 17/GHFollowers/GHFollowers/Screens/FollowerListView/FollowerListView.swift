@@ -35,7 +35,8 @@ struct FollowerListView: View {
                 }
                 .padding(12)
                 .toolbar {
-                    Button(action: { viewModel.addButtonTapped() }) {
+                    // Add to favorite button
+                    Button(action: { viewModel.addButtonTapped(for: username) }) {
                         Label("Add", systemImage: "plus")
                     }
                 }

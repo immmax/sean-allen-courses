@@ -24,7 +24,7 @@ import Observation
     // Published were above
     
     var filteredFollowers: [Follower] {
-//        #warning("It searches only on the loaded pages! Not in all followers!")
+        //        #warning("It searches only on the loaded pages! Not in all followers!")
         if searchText.isEmpty {
             return followers
         } else {
@@ -71,10 +71,25 @@ import Observation
         }
     }
     
-    func addButtonTapped() {
-        // more code to come
-        print("Add button tapped")
+    func addButtonTapped(for username: String) {
+        isLoading = true
+        Task {
+            do {
+                let currentUser = try await NetworkManager.shared.getUserInfo(for: username)
+                isLoading = false
+                let follower = Follower(id: currentUser.id, login: currentUser.login, avatarUrl: currentUser.avatarUrl)
+                try PersistenceManager.updateWith(favorite: follower, actionType: .add)
+                alertItem = AlertContext.successfullyFavorited
+            } catch {
+                if error is GFError {
+                    handleErrors(error as! GFError)
+                } else {
+                    alertItem = AlertContext.genericError
+                }
+            }
+        }
     }
+    
 
     func handleErrors(_ error: GFError) {
         switch error {
