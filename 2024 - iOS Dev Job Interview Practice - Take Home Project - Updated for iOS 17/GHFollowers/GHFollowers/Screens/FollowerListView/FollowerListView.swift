@@ -48,6 +48,7 @@ struct FollowerListView: View {
                     prompt: "Search for a username"
                 )
                 .scrollDismissesKeyboard(.immediately)
+                .disabled(viewModel.isLoading)
                 .submitLabel(.search)
             }
             .task {
