@@ -15,19 +15,10 @@ struct GFEmptyStateView: View {
         ZStack {
             Image(.emptyStateLogo)
                 .resizable()
-                .scaledToFit()
-                .scaleEffect(1.3)
-                .frame(maxHeight: .infinity, alignment: .bottomTrailing)
-                .offset(x: 115)
+                .modifier(EmptyStateImageStyle())
             
             Text(message ?? "")
-                .font(.system(size: 28))
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
-                .lineLimit(3, reservesSpace: true)
-                .foregroundStyle(Color(.secondaryLabel))
-                .padding(.bottom, 250)
-                .padding(.horizontal, 20)
+                .modifier(EmptyStateLabelStyle())
         }
         .ignoresSafeArea()
     }

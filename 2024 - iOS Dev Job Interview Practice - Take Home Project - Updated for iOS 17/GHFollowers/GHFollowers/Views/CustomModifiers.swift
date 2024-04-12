@@ -44,3 +44,30 @@ struct RoundedTextFieldStyle: TextFieldStyle {
             .submitLabel(.go)
     }
 }
+
+
+struct  EmptyStateImageStyle: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .scaledToFit()
+            .scaleEffect(1.3)
+            .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+            .offset(x: 115)
+    }
+}
+
+
+struct EmptyStateLabelStyle: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 28))
+            .fontWeight(.semibold)
+            .multilineTextAlignment(.center)
+            .lineLimit(3, reservesSpace: true)
+            .foregroundStyle(Color(.secondaryLabel))
+            .padding(.bottom, 250)
+            .padding(.horizontal, 20)
+    }
+}
