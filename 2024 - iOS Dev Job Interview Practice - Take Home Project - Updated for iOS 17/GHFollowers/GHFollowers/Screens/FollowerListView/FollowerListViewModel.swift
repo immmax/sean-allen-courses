@@ -83,6 +83,7 @@ import Observation
                 } else {
                     alertItem   = AlertContext.genericError
                 }
+                isLoading       = false
             }
         }
     }

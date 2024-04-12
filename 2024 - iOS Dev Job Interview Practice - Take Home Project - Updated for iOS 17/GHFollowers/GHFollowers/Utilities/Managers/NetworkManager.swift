@@ -38,47 +38,31 @@ final class NetworkManager {
     }
     
     
-    func downloadImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
+    func downloadImage(fromURLString urlString: String) async -> Image? {
         
         let cacheKey  = NSString(string: urlString)
+        if let image  = cache.object(forKey: cacheKey) { return Image(uiImage: image) }
+        guard let url = URL(string: urlString) else { return nil}
         
-        if let image  = cache.object(forKey: cacheKey) {
-            completed(image)
-            return
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let image = UIImage(data: data) else { return nil}
+            cache.setObject(image, forKey: cacheKey)
+            return Image(uiImage: image)
+        } catch {
+            return nil
         }
-        
-        guard let url = URL(string: urlString) else {
-            completed(nil)
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            
-            guard let data, let image = UIImage(data: data) else {
-                completed(nil)
-                return
-            }
-            
-            self.cache.setObject(image, forKey: cacheKey)
-            completed(image)
-        }
-        
-        task.resume()
-    }
-    
+    }    
     
     func getUserInfo(for username: String) async throws -> User {
         let endpoint  = baseURL + "\(username)"
         
-        guard let url = URL(string: endpoint) else {
-            throw GFError.invalidURL
-        }
+        guard let url = URL(string: endpoint) else { throw GFError.invalidURL }
         
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let user =  try decoder.decode(User.self, from: data)
-            return user
+            return try decoder.decode(User.self, from: data)
         } catch {
             throw GFError.invalidData
         }

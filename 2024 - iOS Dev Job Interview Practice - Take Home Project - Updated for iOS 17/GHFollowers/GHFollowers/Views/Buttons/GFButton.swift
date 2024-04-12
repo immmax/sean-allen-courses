@@ -28,7 +28,7 @@ struct GFButton: View {
         
         Button(action: action) {
             Label(title, systemImage: systemImageName)
-                .frame(maxWidth: .infinity, maxHeight: 40)
+                .frame(maxWidth: .infinity, minHeight: 40)
         }
         .buttonStyle(.bordered)
         .tint(color)

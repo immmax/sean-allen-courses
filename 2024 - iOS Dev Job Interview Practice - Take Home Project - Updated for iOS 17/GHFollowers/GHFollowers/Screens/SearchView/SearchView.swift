@@ -35,6 +35,7 @@ struct SearchView: View {
                 }
                 .padding(.bottom, 60)
                 .padding(.horizontal, 40)
+                .disabled(viewModel.username.isEmpty)
             }
             .background(Color(.systemBackground))
             .toolbar(.hidden)

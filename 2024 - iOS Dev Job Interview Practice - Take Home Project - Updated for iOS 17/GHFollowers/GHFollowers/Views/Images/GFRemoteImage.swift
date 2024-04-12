@@ -1,5 +1,5 @@
 //
-//  GFAvatarImage.swift
+//  GFRemoteImage.swift
 //  GHFollowers
 //
 //  Created by Maxim Datskiy on 3/30/24.
@@ -11,10 +11,7 @@ final class ImageLoader: ObservableObject {
     @Published var image: Image? = nil
     
     func load(fromURLString urlString: String) {
-        NetworkManager.shared.downloadImage(fromURLString: urlString) { uiImage in
-            guard let uiImage else { return }
-            DispatchQueue.main.async { self.image = Image(uiImage: uiImage) }
-        }
+        Task { image = await NetworkManager.shared.downloadImage(fromURLString: urlString) ?? Image(.avatarPlaceholder) }
     }
 }
 
@@ -32,9 +29,7 @@ struct GFRemoteImage: View {
     @StateObject var imageLoader = ImageLoader()
     var urlString: String
     
-    init(urlString: String) {
-        self.urlString = urlString
-    }
+    init(urlString: String) { self.urlString = urlString }
 
     var body: some View {
         RemoteImage(image: imageLoader.image)
