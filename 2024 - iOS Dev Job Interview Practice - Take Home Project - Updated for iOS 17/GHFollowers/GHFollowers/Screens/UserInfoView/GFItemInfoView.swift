@@ -22,14 +22,10 @@ struct GFItemInfoView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Image(systemName: symbolImage)
-                    .scaledToFill()
-                    .tint(Color(.label))
-                Text(title)
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-            }
+            Label(title, systemImage: symbolImage)
+                .tint(Color(.label))
+                .font(.headline)
+            
             Text("\(count)")
                 .font(.headline)
         }
