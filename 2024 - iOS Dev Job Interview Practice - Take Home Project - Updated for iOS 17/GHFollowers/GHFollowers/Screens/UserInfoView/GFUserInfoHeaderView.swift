@@ -19,8 +19,7 @@ struct GFUserInfoHeaderView: View {
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text(user.login)
-                        .font(.largeTitle)
-                        .bold()
+                        .font(.largeTitle.bold())
                         .lineLimit(1)
                     
                     Text(user.name ?? "")
@@ -36,6 +35,7 @@ struct GFUserInfoHeaderView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.bottom, 10)
+            
             #warning("Need to delete \r and \n symbols from the string")
             Text(user.bio?.trimmingCharacters(in: ["\n", "\r", "\t", " "]) ?? "No bio available")
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -44,10 +44,9 @@ struct GFUserInfoHeaderView: View {
         .padding(.horizontal, 20)
     }
     
-    init(user: User) {
-        self.user = user
-    }
+    init(user: User) { self.user = user }
 }
+
 
 #Preview {
     GFUserInfoHeaderView(user: MockData.sampleUser)

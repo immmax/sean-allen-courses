@@ -13,7 +13,6 @@ struct FavoriteCell: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 24) {
-            
             GFRemoteImage(urlString: favorite.avatarUrl)
                 .modifier(CellImageStyle())
                 .frame(height: 60)
@@ -28,6 +27,7 @@ struct FavoriteCell: View {
         .padding(.horizontal, 12)
     }
 }
+
 
 #Preview {
     FavoriteCell(favorite: MockData.sampleFollower)

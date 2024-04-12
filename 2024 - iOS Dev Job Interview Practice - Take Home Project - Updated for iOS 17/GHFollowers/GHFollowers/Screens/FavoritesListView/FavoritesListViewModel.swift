@@ -10,9 +10,7 @@ import Observation
 
 @Observable class FavoritesListViewModel {
     
-    var favorites: [Follower] = []
+    var favorites: [Follower]       = []
     
-    func getFavorites() {
-        favorites = try! PersistenceManager.retrieveFavorites()
-    }
+    func getFavorites() { favorites = try! PersistenceManager.retrieveFavorites() }
 }

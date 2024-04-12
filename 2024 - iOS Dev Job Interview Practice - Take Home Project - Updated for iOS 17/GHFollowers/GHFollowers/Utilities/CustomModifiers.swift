@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct  CellImageStyle: ViewModifier {
+    
     func body(content: Content) -> some View {
         content
             .scaledToFit()
@@ -17,31 +18,12 @@ struct  CellImageStyle: ViewModifier {
 
 
 struct  UserInfoImageStyle: ViewModifier {
+    
     func body(content: Content) -> some View {
         content
             .scaledToFit()
             .cornerRadius(10)
             .frame(height: 100)
-    }
-}
-
-
-struct RoundedTextFieldStyle: TextFieldStyle {
-    
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-            .padding()
-            .font(.title2)
-            .frame(width: 300, height: 55)
-            .tint(Color(.label))
-            .overlay {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color(.systemGray4), lineWidth: 3)
-            }
-            .multilineTextAlignment(.center)
-            .autocorrectionDisabled()
-            .autocapitalization(.none)
-            .submitLabel(.go)
     }
 }
 
@@ -69,5 +51,25 @@ struct EmptyStateLabelStyle: ViewModifier {
             .foregroundStyle(Color(.secondaryLabel))
             .padding(.bottom, 250)
             .padding(.horizontal, 20)
+    }
+}
+
+
+struct RoundedTextFieldStyle: TextFieldStyle {
+    
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding()
+            .font(.title2)
+            .frame(width: 300, height: 55)
+            .tint(Color(.label))
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(.systemGray4), lineWidth: 3)
+            }
+            .multilineTextAlignment(.center)
+            .autocorrectionDisabled()
+            .autocapitalization(.none)
+            .submitLabel(.go)
     }
 }

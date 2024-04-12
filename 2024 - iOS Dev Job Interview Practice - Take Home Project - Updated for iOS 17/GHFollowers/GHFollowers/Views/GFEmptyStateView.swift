@@ -24,11 +24,7 @@ struct GFEmptyStateView: View {
     }
 }
 
-struct EmptyStatesContext {
-    static let noFollowers = "This user doesn't have any followers yet. Go follow them 😄."
-}
-
 
 #Preview {
-    GFEmptyStateView(message: "Test message for empty state")
+    GFEmptyStateView(message: "Empty state message")
 }

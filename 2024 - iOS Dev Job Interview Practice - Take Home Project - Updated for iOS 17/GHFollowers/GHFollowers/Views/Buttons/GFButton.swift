@@ -9,9 +9,14 @@ import SwiftUI
 
 struct GFButton: View {
     
-    let title: LocalizedStringKey
+    let title:           LocalizedStringKey
     let backgroundColor: Color
     
+    init(_ title: LocalizedStringKey, backgroundColor: Color = .green) {
+        self.title           = title
+        self.backgroundColor = backgroundColor
+    }
+
     var body: some View {
         Text(title)
             .font(.headline)
@@ -23,12 +28,8 @@ struct GFButton: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding(10)
     }
-    
-    init(_ title: LocalizedStringKey, backgroundColor: Color = .green) {
-        self.title = title
-        self.backgroundColor = backgroundColor
-    }
 }
+
 
 #Preview {
     GFButton("Get")

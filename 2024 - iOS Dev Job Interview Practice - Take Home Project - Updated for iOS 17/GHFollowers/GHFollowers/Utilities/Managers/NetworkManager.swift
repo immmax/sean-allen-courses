@@ -11,14 +11,12 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     private let cache = NSCache<NSString, UIImage>()
+    let baseURL       = "https://api.github.com/users/"
     
     private init() { }
     
-    let baseURL = "https://api.github.com/users/"
-    
-    
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
-        let endpoint = baseURL + "\(username)/followers?per_page=100&page=\(page)"
+        let endpoint  = baseURL + "\(username)/followers?per_page=100&page=\(page)"
         
         guard let url = URL(string: endpoint) else {
             throw GFError.invalidURL
@@ -27,9 +25,9 @@ final class NetworkManager {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let decoder = JSONDecoder()
+            let decoder                 = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let followers =  try decoder.decode([Follower].self, from: data)
+            let followers               =  try decoder.decode([Follower].self, from: data)
             return followers
         } catch {
             throw GFError.invalidData
@@ -39,9 +37,9 @@ final class NetworkManager {
     
     func downloadImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
         
-        let cacheKey = NSString(string: urlString)
+        let cacheKey  = NSString(string: urlString)
         
-        if let image = cache.object(forKey: cacheKey) {
+        if let image  = cache.object(forKey: cacheKey) {
             completed(image)
             return
         }
@@ -51,7 +49,7 @@ final class NetworkManager {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+        let task      = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             
             guard let data, let image = UIImage(data: data) else {
                 completed(nil)
@@ -67,7 +65,7 @@ final class NetworkManager {
     
     
     func getUserInfo(for username: String) async throws -> User {
-        let endpoint = baseURL + "\(username)"
+        let endpoint  = baseURL + "\(username)"
         
         guard let url = URL(string: endpoint) else {
             throw GFError.invalidURL
@@ -76,15 +74,13 @@ final class NetworkManager {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let decoder                  = JSONDecoder()
+            decoder.keyDecodingStrategy  = .convertFromSnakeCase
             decoder.dateDecodingStrategy = .iso8601
-            let user =  try decoder.decode(User.self, from: data)
+            let user                     =  try decoder.decode(User.self, from: data)
             return user
         } catch {
             throw GFError.invalidData
         }
     }
-    
-    
 }

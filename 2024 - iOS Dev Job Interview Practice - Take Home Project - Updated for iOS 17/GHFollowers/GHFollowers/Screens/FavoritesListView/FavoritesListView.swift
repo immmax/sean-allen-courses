@@ -13,9 +13,7 @@ struct FavoritesListView: View {
     
     var body: some View {
         NavigationStack {
-            
             ZStack  {
-                
                 List {
                     ForEach(viewModel.favorites) { favoriteUser in
                         NavigationLink(destination: FollowerListView(username: favoriteUser.login)) {
@@ -24,6 +22,7 @@ struct FavoritesListView: View {
                     }
                     .onDelete { indexSet in
                         viewModel.favorites.remove(atOffsets: indexSet)
+                        #warning("NEXT LINE: Need to just update, not rewrite every time. Possible?")
                         try? PersistenceManager.save(favorites: viewModel.favorites)
                     }
                     .listRowSeparator(.hidden)
@@ -34,8 +33,7 @@ struct FavoritesListView: View {
                 }
                 
                 if viewModel.favorites.isEmpty {
-                    GFEmptyStateView(message: "No favorites?\nAdd one on the follower screen.")
-                        .navigationTitle("Favorites")
+                    GFEmptyStateView(message: EmptyStatesContext.noFavorites)
                 }
             }
             .navigationTitle("Favorites")
@@ -44,9 +42,10 @@ struct FavoritesListView: View {
     }
 }
 
+
 #Preview {
     FavoritesListView()
 }
 
 
-// TODO: - Лучше вместо + сделать ♥️. Если пользователь уже в избранном - закрашивать его. Если надо убрать из избранного - спрашивать, действительно ли хочешь убрать
+// TODO: + -> ♥️. If a user is already in Favorites - fill. Wand to delete? - ask to approve

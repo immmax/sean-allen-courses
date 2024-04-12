@@ -8,7 +8,6 @@
 import SwiftUI
 
 final class ImageLoader: ObservableObject {
-    
     @Published var image: Image? = nil
     
     func load(fromURLString urlString: String) {
@@ -30,20 +29,19 @@ struct RemoteImage: View {
 
 
 struct GFRemoteImage: View {
-    
     @StateObject var imageLoader = ImageLoader()
     var urlString: String
-    
-    var body: some View {
-        
-        RemoteImage(image: imageLoader.image)
-            .onAppear { imageLoader.load(fromURLString: urlString) }
-    }
     
     init(urlString: String) {
         self.urlString = urlString
     }
+
+    var body: some View {
+        RemoteImage(image: imageLoader.image)
+            .onAppear { imageLoader.load(fromURLString: urlString) }
+    }
 }
+
 
 #Preview {
     GFRemoteImage(urlString: MockData.sampleFollower.avatarUrl)

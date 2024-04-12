@@ -12,9 +12,7 @@ struct FollowerCell: View {
     var follower: Follower
     
     var body: some View {
-        
         VStack(alignment: .center) {
-            
             GFRemoteImage(urlString: follower.avatarUrl)
                 .modifier(CellImageStyle())
             
@@ -26,6 +24,7 @@ struct FollowerCell: View {
         .padding(10)
     }
 }
+
 
 #Preview {
     FollowerCell(follower: Follower(id: 1, login: "immmax", avatarUrl: ""))

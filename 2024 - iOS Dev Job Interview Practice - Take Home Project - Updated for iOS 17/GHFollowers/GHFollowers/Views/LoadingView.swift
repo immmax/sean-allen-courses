@@ -11,7 +11,6 @@ struct LoadingView: View {
     
     var body: some View {
         ZStack {
-            
             Color(.systemBackground)
                 .opacity(0.8)
             
@@ -20,6 +19,7 @@ struct LoadingView: View {
         }
     }
 }
+
 
 #Preview {
     LoadingView()

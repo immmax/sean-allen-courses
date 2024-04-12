@@ -9,11 +9,12 @@ import Foundation
 import Observation
 
 @Observable final class UserInfoViewModel {
-    var isLoading = false
+    
     var alertItem: AlertItem?
+    var isLoading       = false
     var isShowingSafari = false
     
     init(alertItem: AlertItem? = nil) {
-        self.alertItem = alertItem
+        self.alertItem  = alertItem
     }
 }

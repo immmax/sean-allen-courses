@@ -14,17 +14,17 @@ enum ItemInfoType {
 
 
 struct GFItemInfoView: View {
-    let itemInfoType: ItemInfoType
     
-    let symbolImage: String
-    let title: String   // textAlignment: .left, fontSize: 14
-    let count: Int      // textAlignment: .center, fontSize: 14
+    let itemInfoType: ItemInfoType
+    let symbolImage:  String
+    let title:        String   // textAlignment: .left, fontSize: 14
+    let count:        Int      // textAlignment: .center, fontSize: 14
     
     var body: some View {
         VStack {
             Label(title, systemImage: symbolImage)
-                .tint(Color(.label))
                 .font(.headline)
+                .tint(Color(.label))
             
             Text("\(count)")
                 .font(.headline)
@@ -33,7 +33,8 @@ struct GFItemInfoView: View {
     }
     
     init(itemInfoType: ItemInfoType, withCount count: Int) {
-        self.itemInfoType = itemInfoType
+        self.itemInfoType       = itemInfoType
+        
         switch itemInfoType {
         case .repos:
             self.symbolImage    = SFSymbols.repos
@@ -48,9 +49,11 @@ struct GFItemInfoView: View {
             self.symbolImage    = SFSymbols.following
             self.title          = "Followings"
         }
+        
         self.count             = count
     }
 }
+
 
 #Preview {
     GFItemInfoView(itemInfoType: .followers, withCount: 14)

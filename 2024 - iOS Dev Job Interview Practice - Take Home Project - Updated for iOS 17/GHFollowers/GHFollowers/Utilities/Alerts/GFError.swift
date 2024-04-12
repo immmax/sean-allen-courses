@@ -8,14 +8,17 @@
 import Foundation
 
 enum GFError: Error {
+    
     case genericError
+    case unableToComplete
+    
     case invalidURL
     case invalidData
     
-    case emptyUsername
     case invalidUsername
-    case unableToComplete
+    case emptyUsername
     case noFollowers
+    
     case unableToFavorite
     case alreadyInFavorites
 }

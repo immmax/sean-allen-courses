@@ -12,23 +12,19 @@ protocol GFFollowerViewDelegate {
 }
 
 struct GFFollowerItemView: View {
-    let user: User
-    var delegate: GFFollowerViewDelegate
+    
+    let user:       User
+    var delegate:   GFFollowerViewDelegate
     
     var body: some View {
-        GFInfoCardView(
-            user: user,
-            itemInfoOneType: .followers,
-            countOne: user.followers,
-            itemInfoTwoType: .following,
-            countTwo: user.following,
-            buttonTitle: "Get Followers",
-            backgroundColor: Color(.systemGreen),
-            action: { delegate.didTapGetFollowers(for: user) }
+        GFInfoCardView(user:            user,
+                       itemInfoOneType: .followers,
+                       countOne:        user.followers,
+                       itemInfoTwoType: .following,
+                       countTwo:        user.following,
+                       buttonTitle:     "Get Followers",
+                       backgroundColor: Color(.systemGreen),
+                       action:          { delegate.didTapGetFollowers(for: user) }
         )
     }
 }
-
-//#Preview {
-//    GFFollowerItemView()
-//}
