@@ -9,26 +9,29 @@ import SwiftUI
 
 final class NetworkManager {
     
-    static let shared = NetworkManager()
-    private let cache = NSCache<NSString, UIImage>()
-    let baseURL       = "https://api.github.com/users/"
+    static let shared            = NetworkManager()
+    private let cache            = NSCache<NSString, UIImage>()
+    let baseURL                  = "https://api.github.com/users/"
+    let decoder                  = JSONDecoder()
     
-    private init() { }
+    private init() { 
+        decoder.keyDecodingStrategy  = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+    }
     
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
         let endpoint  = baseURL + "\(username)/followers?per_page=100&page=\(page)"
         
-        guard let url = URL(string: endpoint) else {
-            throw GFError.invalidURL
+        guard let url = URL(string: endpoint) else { throw GFError.invalidURL }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GFError.unableToComplete
         }
         
-        let (data, _) = try await URLSession.shared.data(from: url)
-        
         do {
-            let decoder                 = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let followers               =  try decoder.decode([Follower].self, from: data)
-            return followers
+            return try decoder.decode([Follower].self, from: data)
         } catch {
             throw GFError.invalidData
         }
@@ -49,7 +52,7 @@ final class NetworkManager {
             return
         }
         
-        let task      = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             
             guard let data, let image = UIImage(data: data) else {
                 completed(nil)
@@ -74,10 +77,7 @@ final class NetworkManager {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let decoder                  = JSONDecoder()
-            decoder.keyDecodingStrategy  = .convertFromSnakeCase
-            decoder.dateDecodingStrategy = .iso8601
-            let user                     =  try decoder.decode(User.self, from: data)
+            let user =  try decoder.decode(User.self, from: data)
             return user
         } catch {
             throw GFError.invalidData
