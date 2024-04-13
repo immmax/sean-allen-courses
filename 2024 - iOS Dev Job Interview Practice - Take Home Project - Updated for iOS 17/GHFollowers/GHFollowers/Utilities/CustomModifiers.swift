@@ -36,6 +36,7 @@ struct  EmptyStateImageStyle: ViewModifier {
             .scaleEffect(1.3)
             .frame(maxHeight: .infinity, alignment: .bottomTrailing)
             .offset(x: 115)
+            .padding(.bottom, 80)
     }
 }
 
