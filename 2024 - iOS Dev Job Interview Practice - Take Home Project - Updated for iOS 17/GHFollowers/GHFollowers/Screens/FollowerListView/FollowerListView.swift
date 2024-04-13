@@ -54,9 +54,14 @@ struct FollowerListView: View {
             if viewModel.isLoading {
                 LoadingView()
             } else if viewModel.followers.isEmpty {
-                GFEmptyStateView(message: EmptyStatesContext.noFollowers)
-            } else if viewModel.filteredFollowers.isEmpty {
                 #warning("Sometimes shows up while loading even if there are followers")
+//                GFEmptyStateView(message: EmptyStatesContext.noFollowers)
+                ContentUnavailableView(
+                    "No Followers",
+                    systemImage: "person.slash",
+                    description: Text("This user has no any followers. Go follow them!")
+                )
+            } else if viewModel.filteredFollowers.isEmpty {
                 ContentUnavailableView.search
             }
         }

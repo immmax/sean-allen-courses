@@ -33,7 +33,12 @@ struct FavoritesListView: View {
                 }
                 
                 if viewModel.favorites.isEmpty {
-                    GFEmptyStateView(message: EmptyStatesContext.noFavorites)
+//                    GFEmptyStateView(message: EmptyStatesContext.noFavorites)
+                    ContentUnavailableView(
+                        "No Favorites",
+                        systemImage: "star",
+                        description: Text("Add a favorite on the follower list screen")
+                    )
                 }
             }
             .navigationTitle("Favorites")
