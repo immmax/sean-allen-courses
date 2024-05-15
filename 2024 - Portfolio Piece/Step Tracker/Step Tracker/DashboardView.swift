@@ -88,12 +88,13 @@ struct DashboardView: View {
                             }
                         }
                         .chartXAxis {
-                            AxisMarks {
-                                AxisValueLabel(format: .dateTime.month(.defaultDigits).day() )
+                            AxisMarks(preset: .aligned) {
+                                AxisValueLabel(format: .dateTime.month(.defaultDigits).day())
                             }
+                            
                         }
                         .chartYAxis {
-                            AxisMarks {value in
+                            AxisMarks(preset: .aligned) { value in
                                 AxisGridLine()
                                     .foregroundStyle(Color.secondary.opacity(0.3))
                                 
