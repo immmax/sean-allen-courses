@@ -78,9 +78,6 @@ struct StepBarChart: View {
             }
             .frame(height: 150)
             .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
-//                        .onChange(of: rawSelectedDate, { oldValue, newValue in
-//                            print(newValue)
-//                        })
             .chartXAxis {
                 AxisMarks(preset: .aligned) {
                     AxisValueLabel(format: .dateTime.month(.defaultDigits).day())
@@ -120,5 +117,5 @@ struct StepBarChart: View {
 }
 
 #Preview {
-    StepBarChart(selectedStat: .steps, chartData: HealthMetric.mockData)
+    StepBarChart(selectedStat: .steps, chartData: MockData.steps)
 }
