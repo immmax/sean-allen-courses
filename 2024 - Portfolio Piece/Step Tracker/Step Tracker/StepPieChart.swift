@@ -17,7 +17,7 @@ struct StepPieChart: View {
         
         var total = 0.0
         return chartData.first {
-            total += $00.value
+            total += $0.value
             return rawSelectedValue <= total
         }
     }

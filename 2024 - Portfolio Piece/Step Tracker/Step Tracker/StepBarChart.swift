@@ -12,7 +12,7 @@ struct StepBarChart: View {
     @State private var rawSelectedDate: Date?
     
     var selectedStat: HealthMetricContext
-    var chartData: [HealthMetric ]
+    var chartData: [HealthMetric]
     
     var selectedHealthMetric: HealthMetric? {
         guard let rawSelectedDate else { return nil }
@@ -66,8 +66,7 @@ struct StepBarChart: View {
                     .foregroundStyle(Color.secondary)
                     .lineStyle(.init(lineWidth: 1, dash: [5]))
                 
-                ForEach(chartData) { steps in // for Real Data
-//                            ForEach(HealthMetric.mockData) { steps in // for Previews
+                ForEach(chartData) { steps in
                     BarMark(
                         x: .value("Date", steps.date, unit: .day),
                         y: .value("Steps", steps.value)
@@ -89,7 +88,7 @@ struct StepBarChart: View {
                     AxisGridLine()
                         .foregroundStyle(Color.secondary.opacity(0.3))
                     
-                    AxisValueLabel((value.as(Double.self) ?? 0).formatted(.number.notation(.compactName )))
+                    AxisValueLabel((value.as(Double.self) ?? 0).formatted(.number.notation(.compactName)))
                 }
             }
         }
