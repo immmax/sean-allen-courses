@@ -36,39 +36,43 @@ struct WeightDiffBarChart: View {
             }
             .padding(.bottom, 12)
             
-            Chart {
-                if let selectedData {
-                    RuleMark(x: .value("Selected Data", selectedData.date, unit: .day))
-                        .foregroundStyle(Color.secondary.opacity(0.3))
-                        .offset(y: -10)
-                        .annotation(
-                            position: .top,
-                            alignment: .center,
-                            spacing: 0,
-                            overflowResolution: .init(x: .fit(to: .chart) , y: .disabled)) { annotationView }
-                }
-                
-                ForEach(chartData) { weightDiff in
-                    BarMark(
-                        x: .value("Date", weightDiff.date, unit: .day),
-                        y: .value("Weight Diff", weightDiff.value)
-                    )
-                    .foregroundStyle(weightDiff.value > 0 ? Color.indigo.gradient : Color.mint.gradient)
-                }
-            }
-            .frame(height: 240)
-            .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
-            .chartXAxis {
-                AxisMarks(values: .stride(by: .day)) {
-                    AxisValueLabel(format: .dateTime.weekday(.abbreviated), centered: true)
-                }
-            }
-            .chartYAxis {
-                AxisMarks(preset: .aligned) { value in
-                    AxisGridLine()
-                        .foregroundStyle(Color.secondary.opacity(0.3))
+            if chartData.isEmpty {
+                ChartEmptyView(systemImageName: "chart.bar", title: "No Data", description: "No weight data from the Health App")
+            } else {
+                Chart {
+                    if let selectedData {
+                        RuleMark(x: .value("Selected Data", selectedData.date, unit: .day))
+                            .foregroundStyle(Color.secondary.opacity(0.3))
+                            .offset(y: -10)
+                            .annotation(
+                                position: .top,
+                                alignment: .center,
+                                spacing: 0,
+                                overflowResolution: .init(x: .fit(to: .chart) , y: .disabled)) { annotationView }
+                    }
                     
-                    AxisValueLabel()
+                    ForEach(chartData) { weightDiff in
+                        BarMark(
+                            x: .value("Date", weightDiff.date, unit: .day),
+                            y: .value("Weight Diff", weightDiff.value)
+                        )
+                        .foregroundStyle(weightDiff.value > 0 ? Color.indigo.gradient : Color.mint.gradient)
+                    }
+                }
+                .frame(height: 240)
+                .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
+                .chartXAxis {
+                    AxisMarks(values: .stride(by: .day)) {
+                        AxisValueLabel(format: .dateTime.weekday(.abbreviated), centered: true)
+                    }
+                }
+                .chartYAxis {
+                    AxisMarks(preset: .aligned) { value in
+                        AxisGridLine()
+                            .foregroundStyle(Color.secondary.opacity(0.3))
+                        
+                        AxisValueLabel()
+                    }
                 }
             }
         }

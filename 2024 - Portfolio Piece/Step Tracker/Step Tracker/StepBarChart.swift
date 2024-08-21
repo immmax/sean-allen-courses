@@ -52,45 +52,49 @@ struct StepBarChart: View {
             .foregroundStyle(.secondary)
             .padding(.bottom, 12)
             
-            Chart  {
-                if let selectedHealthMetric {
-                    RuleMark(x: .value("Selected Metric", selectedHealthMetric.date, unit: .day))
-                        .foregroundStyle(Color.secondary.opacity(0.3))
-                        .offset(y: -10)
-                        .annotation(
-                            position: .top,
-                            alignment: .center,
-                            spacing: 0,
-                            overflowResolution: .init(x: .fit(to: .chart) , y: .disabled)) { annotationView }
-                }
-                
-                RuleMark(y: .value("Average", avgStepCount))
-                    .foregroundStyle(Color.secondary)
-                    .lineStyle(.init(lineWidth: 1, dash: [5]))
-                
-                ForEach(chartData) { steps in
-                    BarMark(
-                        x: .value("Date", steps.date, unit: .day),
-                        y: .value("Steps", steps.value)
-                    )
-                    .foregroundStyle(.pink.gradient)
-                    .opacity(rawSelectedDate == nil || steps.date == selectedHealthMetric?.date ? 1.0 : 0.3)
-                }
-            }
-            .frame(height: 150)
-            .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
-            .chartXAxis {
-                AxisMarks(preset: .aligned) {
-                    AxisValueLabel(format: .dateTime.month(.defaultDigits).day())
-                }
-                
-            }
-            .chartYAxis {
-                AxisMarks(preset: .aligned) { value in
-                    AxisGridLine()
-                        .foregroundStyle(Color.secondary.opacity(0.3))
+            if chartData.isEmpty {
+                ChartEmptyView(systemImageName: "chart.bar", title: "No Data", description: "No step count data from the Health App")
+            } else {
+                Chart  {
+                    if let selectedHealthMetric {
+                        RuleMark(x: .value("Selected Metric", selectedHealthMetric.date, unit: .day))
+                            .foregroundStyle(Color.secondary.opacity(0.3))
+                            .offset(y: -10)
+                            .annotation(
+                                position: .top,
+                                alignment: .center,
+                                spacing: 0,
+                                overflowResolution: .init(x: .fit(to: .chart) , y: .disabled)) { annotationView }
+                    }
                     
-                    AxisValueLabel((value.as(Double.self) ?? 0).formatted(.number.notation(.compactName)))
+                    RuleMark(y: .value("Average", avgStepCount))
+                        .foregroundStyle(Color.secondary)
+                        .lineStyle(.init(lineWidth: 1, dash: [5]))
+                    
+                    ForEach(chartData) { steps in
+                        BarMark(
+                            x: .value("Date", steps.date, unit: .day),
+                            y: .value("Steps", steps.value)
+                        )
+                        .foregroundStyle(.pink.gradient)
+                        .opacity(rawSelectedDate == nil || steps.date == selectedHealthMetric?.date ? 1.0 : 0.3)
+                    }
+                }
+                .frame(height: 150)
+                .chartXSelection(value: $rawSelectedDate.animation(.easeInOut))
+                .chartXAxis {
+                    AxisMarks(preset: .aligned) {
+                        AxisValueLabel(format: .dateTime.month(.defaultDigits).day())
+                    }
+                    
+                }
+                .chartYAxis {
+                    AxisMarks(preset: .aligned) { value in
+                        AxisGridLine()
+                            .foregroundStyle(Color.secondary.opacity(0.3))
+                        
+                        AxisValueLabel((value.as(Double.self) ?? 0).formatted(.number.notation(.compactName)))
+                    }
                 }
             }
         }

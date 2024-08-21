@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9107BCFF2C75D646002ECC9E /* ChartEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107BCFE2C75D646002ECC9E /* ChartEmptyView.swift */; };
 		9115B46A2BFDD811008C567C /* StepBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9115B4692BFDD811008C567C /* StepBarChart.swift */; };
 		9147893B2BF464C800E3248F /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9147893A2BF464C800E3248F /* HealthMetric.swift */; };
 		914A7A6A2C5B2A4800ABE393 /* ChartMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914A7A692C5B2A4800ABE393 /* ChartMath.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9107BCFE2C75D646002ECC9E /* ChartEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEmptyView.swift; sourceTree = "<group>"; };
 		9115B4692BFDD811008C567C /* StepBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBarChart.swift; sourceTree = "<group>"; };
 		9147893A2BF464C800E3248F /* HealthMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetric.swift; sourceTree = "<group>"; };
 		914A7A692C5B2A4800ABE393 /* ChartMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMath.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				91ADD3362C68752100C0E943 /* WeightDiffBarChart.swift */,
 				914A7A692C5B2A4800ABE393 /* ChartMath.swift */,
 				914A7A6B2C5B2A8D00ABE393 /* ChartDataTypes.swift */,
+				9107BCFE2C75D646002ECC9E /* ChartEmptyView.swift */,
 			);
 			name = Charts;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				91ADD3372C68752100C0E943 /* WeightDiffBarChart.swift in Sources */,
 				9115B46A2BFDD811008C567C /* StepBarChart.swift in Sources */,
 				91ADD3352C65F8AA00C0E943 /* MockData.swift in Sources */,
+				9107BCFF2C75D646002ECC9E /* ChartEmptyView.swift in Sources */,
 				919D03AC2BE24A97003E6E34 /* Step_TrackerApp.swift in Sources */,
 				9178C8612BE3824C00ABC639 /* HealthKitManager.swift in Sources */,
 				9178C85E2BE37B4800ABC639 /* HealthKitPermissionPrimingView.swift in Sources */,
