@@ -13,7 +13,7 @@ struct StepPieChart: View {
     @State private var rawSelectedValue: Double? = 0
     @State private var selectedDay: Date?
     
-    var selectedWeekday: WeekdayChartData? {
+    var selectedWeekday: DateValueChartData? {
         guard let rawSelectedValue else { return nil }
         
         var total = 0.0
@@ -23,21 +23,16 @@ struct StepPieChart: View {
         }
     }
 
-    var chartData: [WeekdayChartData]
+    var chartData: [DateValueChartData]
 
     var body: some View {
-        VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Label("Averages", systemImage: "calendar")
-                    .font(.title3.bold())
-                    .foregroundStyle(.pink)
-                
-                Text("Last 28 Days")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.bottom, 12)
-            
+        let config = ChartContainerConfiguration(title: "Averages",
+                                                 symbol: "calendar",
+                                                 subtitle: "Last 28 Days",
+                                                 context: .steps,
+                                                 isNav: false)
+        
+        ChartContainer(config: config) {
             if chartData.isEmpty {
                 ChartEmptyView(systemImageName: "chart.pie", title: "No Data", description: "No step count data from the Health App")
             } else {
@@ -78,8 +73,6 @@ struct StepPieChart: View {
                 }
             }
         }
-        .padding()
-        .background(RoundedRectangle(cornerRadius: 12).fill(Color(.secondarySystemBackground)))
         .sensoryFeedback(.selection, trigger: selectedDay)
         .onChange(of: selectedWeekday) { oldValue, newValue in
             guard let oldValue, let newValue else { return }
@@ -91,5 +84,5 @@ struct StepPieChart: View {
 }
 
 #Preview {
-    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: MockData.steps))
+    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: []))
 }
