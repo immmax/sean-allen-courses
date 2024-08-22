@@ -9,6 +9,44 @@ import Foundation
 import HealthKit
 import Observation
 
+enum STError: LocalizedError {
+    case authNotDetermined
+    case sharingDenied(quantityType: String)
+    case noData
+    case unableToCompleteRequest
+    case invalidValue
+    
+    var errorDescription: String? {
+        switch self {
+        case .authNotDetermined:
+            "Need Access to Health Data"
+        case .sharingDenied(_):
+            "No Write Access"
+        case .noData:
+            "No Data"
+        case .unableToCompleteRequest:
+            "Unable to Complete Request"
+        case .invalidValue:
+            "Invalid Value"
+        }
+    }
+    
+    var failureReason: String {
+        switch self {
+        case .authNotDetermined:
+            "You have not given access to your Health data. Please go to Settings > Health > Data Access & Devices."
+        case .sharingDenied(let quantityType):
+            "You have denied access to upload your \(quantityType) data.\n\nYou can change this in Settings › Health › Data Access & Devices."
+        case .noData:
+            "There is no data for this Health statistic."
+        case .unableToCompleteRequest:
+            "We are unable to complete your request at this time.\n\nPlease try again later or contact support."
+        case .invalidValue:
+            "Must be a numeric value with a maximum of one decimal place"
+        }
+    }
+}
+
 @Observable class HealthKitManager {
     
     let store = HKHealthStore()
@@ -19,7 +57,11 @@ import Observation
     var weightData: [HealthMetric] = []
     var weightDiffData: [HealthMetric] = []
     
-    func fetchSteps() async {
+    func fetchSteps() async throws {
+        guard store.authorizationStatus(for: HKQuantityType(.stepCount)) != .notDetermined else {
+            throw STError.authNotDetermined
+        }
+        
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         let endDate = calendar.date(byAdding: .day, value: 1, to: today)!
@@ -37,13 +79,19 @@ import Observation
             stepData = steps.statistics().map {
                 .init(date: $0.startDate, value: $0.sumQuantity()?.doubleValue(for: .count()) ?? 0)
             }
+        } catch HKError.errorNoData {
+            throw STError.noData
         } catch {
-            
+            throw STError.unableToCompleteRequest
         }
     }
     
     
-    func fetchWeights() async {
+    func fetchWeights() async throws {
+        guard store.authorizationStatus(for: HKQuantityType(.bodyMass)) != .notDetermined else {
+            throw STError.authNotDetermined
+        }
+        
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         let endDate = calendar.date(byAdding: .day, value: 1, to: today)!
@@ -61,13 +109,19 @@ import Observation
             weightData = weight.statistics().map {
                 .init(date: $0.startDate, value: $0.mostRecentQuantity()?.doubleValue(for: .pound()) ?? 0)
             }
+        } catch HKError.errorNoData {
+            throw STError.noData
         } catch {
-            
+            throw STError.unableToCompleteRequest
         }
     }
     
     
-    func fetchWeightsForDifferentials() async {
+    func fetchWeightsForDifferentials() async throws {
+        guard store.authorizationStatus(for: HKQuantityType(.bodyMass)) != .notDetermined else {
+            throw STError.authNotDetermined
+        }
+        
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         let endDate = calendar.date(byAdding: .day, value: 1, to: today)!
@@ -85,23 +139,57 @@ import Observation
             weightDiffData = weight.statistics().map {
                 .init(date: $0.startDate, value: $0.mostRecentQuantity()?.doubleValue(for: .pound()) ?? 0)
             }
+        } catch HKError.errorNoData {
+            throw STError.noData
         } catch {
-            
+            throw STError.unableToCompleteRequest
         }
     }
     
     
-    func addStepData(for date: Date, value: Double) async {
+    func addStepData(for date: Date, value: Double) async throws {
+        let status = store.authorizationStatus(for: HKQuantityType(.stepCount))
+        switch status {
+        case .notDetermined:
+            throw STError.authNotDetermined
+        case .sharingDenied:
+            throw STError.sharingDenied(quantityType: "step count")
+        case .sharingAuthorized:
+            break
+        @unknown default:
+            break
+        }
+        
         let stepQuantity = HKQuantity(unit: .count(), doubleValue: value)
         let stepSample = HKQuantitySample(type: HKQuantityType(.stepCount), quantity: stepQuantity, start: date, end: date)
-        try! await store.save(stepSample)
+        do {
+            try await store.save(stepSample)
+        } catch {
+            throw STError.unableToCompleteRequest
+        }
     }
     
     
-    func addWeightData(for date: Date, value: Double) async {
+    func addWeightData(for date: Date, value: Double) async throws {
+        let status = store.authorizationStatus(for: HKQuantityType(.bodyMass))
+        switch status {
+        case .notDetermined:
+            throw STError.authNotDetermined
+        case .sharingDenied:
+            throw STError.sharingDenied(quantityType: "weight")
+        case .sharingAuthorized:
+            break
+        @unknown default:
+            break
+        }
+        
         let weightQuantity = HKQuantity(unit: .pound(), doubleValue: value)
         let weightSample = HKQuantitySample(type: HKQuantityType(.bodyMass), quantity: weightQuantity, start: date, end: date)
-        try! await store.save(weightSample)
+        do {
+            try await store.save(weightSample)
+        } catch {
+            throw STError.unableToCompleteRequest
+        }
     }
     
     
