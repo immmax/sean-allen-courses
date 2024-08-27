@@ -34,7 +34,6 @@ struct DashboardView: View {
     @State private var selectedStat: HealthMetricContext = .steps
     @State private var isShowingAlert = false
     @State private var fetchError: STError = .unableToCompleteRequest
-    var isSteps: Bool { selectedStat == .steps }
     
     var body: some View {
         NavigationStack {
@@ -58,28 +57,13 @@ struct DashboardView: View {
                 }
             }
             .padding()
-            .task {
-//                await hkManager.addSimulatorData()
-                do {
-                    try await hkManager.fetchSteps()
-                    try await hkManager.fetchWeights()
-                    try await hkManager.fetchWeightsForDifferentials()
-                } catch STError.authNotDetermined {
-                    isShowingPermissionPrimingSheet = true
-                } catch STError.noData {
-                    fetchError = .noData
-                    isShowingAlert = true
-                } catch {
-                    fetchError = .unableToCompleteRequest
-                    isShowingAlert = true
-                }
-            }
+            .task { fetchHealthData() }
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
                 HealthDataListView(metric: metric)
             }
             .fullScreenCover(isPresented: $isShowingPermissionPrimingSheet, onDismiss: {
-                //fetch health data
+                fetchHealthData()
             }, content: {
                 HealthKitPermissionPrimingView()
             })
@@ -90,6 +74,28 @@ struct DashboardView: View {
             }
         }
         .tint(selectedStat.tint)
+    }
+    
+    private func fetchHealthData() {
+        Task {
+            do {
+                async let steps = hkManager.fetchSteps()
+                async let weights = hkManager.fetchWeights(daysBack: 28)
+                async let weightsForDiffBarChart = hkManager.fetchWeights(daysBack: 29)
+                
+                hkManager.stepData = try await steps
+                hkManager.weightData = try await weights
+                hkManager.weightDiffData = try await weightsForDiffBarChart
+            } catch STError.authNotDetermined {
+                isShowingPermissionPrimingSheet = true
+            } catch STError.noData {
+                fetchError = .noData
+                isShowingAlert = true
+            } catch {
+                fetchError = .unableToCompleteRequest
+                isShowingAlert = true
+            }
+        }
     }
 }
 
