@@ -11,15 +11,14 @@ import Charts
 struct StepPieChart: View {
     
     @State private var rawSelectedValue: Double? = 0
+    @State private var lastSelectedValue: Double = 0
     @State private var selectedDay: Date?
     
     var selectedWeekday: DateValueChartData? {
-        guard let rawSelectedValue else { return nil }
-        
         var total = 0.0
         return chartData.first {
             total += $0.value
-            return rawSelectedValue <= total
+            return lastSelectedValue <= total
         }
     }
 
@@ -33,9 +32,6 @@ struct StepPieChart: View {
                                                  isNav: false)
         
         ChartContainer(config: config) {
-            if chartData.isEmpty {
-                ChartEmptyView(systemImageName: "chart.pie", title: "No Data", description: "No step count data from the Health App")
-            } else {
                 Chart {
                     ForEach(chartData) { weekday in
                         SectorMark(
@@ -49,7 +45,17 @@ struct StepPieChart: View {
                         .opacity(selectedWeekday?.date.weekdayInt == weekday.date.weekdayInt ? 1.0 : 0.3)
                     }
                 }
-                .chartAngleSelection(value: $rawSelectedValue.animation(.easeInOut))
+                .chartAngleSelection(value: $rawSelectedValue)
+                .onChange(of: rawSelectedValue) { oldValue, newValue in
+                    withAnimation {
+                        guard let newValue else {
+                            lastSelectedValue = oldValue ?? 0
+                            return
+                        }
+                        
+                        lastSelectedValue = newValue
+                    }
+                }
                 .frame(height: 240)
                 .chartBackground { proxy in
                     GeometryReader { geo in
@@ -59,7 +65,7 @@ struct StepPieChart: View {
                                 VStack {
                                     Text(selectedWeekday.date.weekdayTitle)
                                         .font(.title3.bold())
-                                        .contentTransition(.numericText())
+                                        .animation(.none)
                                     
                                     Text(selectedWeekday.value, format: .number.precision(.fractionLength(0)))
                                         .fontWeight(.medium)
@@ -71,6 +77,10 @@ struct StepPieChart: View {
                         }
                     }
                 }
+        }
+        .overlay {
+            if chartData.isEmpty {
+                ChartEmptyView(systemImageName: "chart.pie", title: "No Data", description: "No step count data from the Health App")
             }
         }
         .sensoryFeedback(.selection, trigger: selectedDay)
@@ -84,5 +94,5 @@ struct StepPieChart: View {
 }
 
 #Preview {
-    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: []))
+    StepPieChart(chartData: ChartMath.averageWeekdayCount(for: MockData.steps))
 }
