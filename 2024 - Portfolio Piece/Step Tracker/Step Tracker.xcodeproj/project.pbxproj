@@ -52,6 +52,7 @@
 		919D03AD2BE24A97003E6E34 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		919D03AF2BE24A99003E6E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		919D03B22BE24A99003E6E34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		91AA68B42D7AA94800C503A0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		91ADD3312C65F73000C0E943 /* WeightLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLineChart.swift; sourceTree = "<group>"; };
 		91ADD3342C65F8AA00C0E943 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		91ADD3362C68752100C0E943 /* WeightDiffBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDiffBarChart.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 			children = (
 				919D03AA2BE24A97003E6E34 /* Step Tracker */,
 				919D03A92BE24A97003E6E34 /* Products */,
+				91AA68B42D7AA94800C503A0 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
