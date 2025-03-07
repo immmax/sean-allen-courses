@@ -20,27 +20,23 @@ struct WeightDiffBarChart: View {
     var chartData: [DateValueChartData]
     
     var body: some View {
-        let config = ChartContainerConfiguration(title: "Average Weight Change",
-                                                 symbol: "figure",
-                                                 subtitle: "Per Weekday (Last 28 Days)",
-                                                 context: .weight,
-                                                 isNav: false)
          
-        ChartContainer(config: config) {
-            if chartData.isEmpty {
-                ChartEmptyView(systemImageName: "chart.bar", title: "No Data", description: "No weight data from the Health App")
-            } else {
+        ChartContainer(chartType: .weightDiffBar) {
                 Chart {
                     if let selectedData {
                         ChartAnnotationView(data: selectedData, context: .weight)
                     }
                     
                     ForEach(chartData) { weightDiff in
-                        BarMark(
-                            x: .value("Date", weightDiff.date, unit: .day),
-                            y: .value("Weight Diff", weightDiff.value)
-                        )
-                        .foregroundStyle(weightDiff.value > 0 ? Color.indigo.gradient : Color.mint.gradient)
+                        Plot {
+                            BarMark(
+                                x: .value("Date", weightDiff.date, unit: .day),
+                                y: .value("Weight Diff", weightDiff.value)
+                            )
+                            .foregroundStyle(weightDiff.value > 0 ? Color.indigo.gradient : Color.mint.gradient)
+                        }
+                        .accessibilityLabel(weightDiff.date.weekdayTitle)
+                        .accessibilityValue("\(Int(weightDiff.value.formatted(.number.precision(.fractionLength(2)).sign(strategy: .always())))) pounds")
                     }
                 }
                 .frame(height: 240)
@@ -58,6 +54,10 @@ struct WeightDiffBarChart: View {
                         AxisValueLabel()
                     }
                 }
+        }
+        .overlay {
+            if chartData.isEmpty {
+                ChartEmptyView(systemImageName: "chart.bar", title: "No Data", description: "No weight data from the Health App")
             }
         }
         .sensoryFeedback(.selection, trigger: selectedDay)
@@ -70,5 +70,5 @@ struct WeightDiffBarChart: View {
 }
 
 #Preview {
-    WeightDiffBarChart(chartData: ChartMath.averageDailyWeightDiffs(for: []))
+    WeightDiffBarChart(chartData: ChartHelper.averageDailyWeightDiffs(for: []))
 }
