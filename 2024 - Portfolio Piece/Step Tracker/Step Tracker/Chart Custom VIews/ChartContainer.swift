@@ -50,6 +50,19 @@ enum ChartType {
         }
     }
     
+    var accessibilityLabel: String {
+        switch self {
+        case .stepBar(let average):
+            "Bar Chart, step count, last 28 days, average steps per day: \(average) steps."
+        case .stepWeekdayPie:
+            "Pie Chart, average steps per weekday"
+        case .weightLine(let average):
+            "Line Chart, weight, average weight: \(average.formatted(.number.precision(.fractionLength(1)))) pounds, goal weight: 200 pounds."
+        case .weightDiffBar:
+            "Bar Chart, average weight difference per weekday."
+        }
+    }
+    
     var isNav: Bool {
         switch self {
         case .stepBar, .weightLine:
@@ -111,6 +124,8 @@ struct ChartContainer<Content: View>: View {
         }
         .foregroundStyle(.secondary)
         .padding(.bottom, 12)
+        .accessibilityHint("Tap for data in list view")
+//        .accessibilityRemoveTraits(.isButton)
     }
     
     var titleView: some View {
@@ -118,11 +133,13 @@ struct ChartContainer<Content: View>: View {
             Label(chartType.title, systemImage: chartType.symbol)
                 .font(.title3.bold())
                 .foregroundStyle(chartType.context == .steps ? .pink : .indigo)
-                .accessibilityLabel("Step Bar Chart - Last 28 Days")
             
             Text(chartType.subtitle)
                 .font(.caption)
         }
+        .accessibilityAddTraits(.isHeader)
+        .accessibilityLabel(chartType.accessibilityLabel)
+        .accessibilityElement(children: .ignore)
     }
 }
 

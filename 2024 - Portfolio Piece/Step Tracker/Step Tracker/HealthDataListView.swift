@@ -28,7 +28,9 @@ struct HealthDataListView: View {
                 Text(data.date, format: .dateTime.month(.wide).day().year())
             } label: {
                 Text(data.value, format: .number.precision(.fractionLength(metric == .steps ? 0 : 1)))
+                    .accessibilityLabel(data.date.accessibilityDate)
             }
+            .accessibilityElement(children: .combine)
         }
         .navigationTitle(metric.title)
         .sheet(isPresented: $isShowingAddData) {
