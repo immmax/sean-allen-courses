@@ -30,6 +30,7 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 struct DashboardView: View {
     
     @Environment(HealthKitManager.self) var hkManager
+    @Environment(HealthKitData.self) var hkData
     @State private var isShowingPermissionPrimingSheet = false
     @State private var selectedStat: HealthMetricContext = .steps
     @State private var isShowingAlert = false
@@ -48,11 +49,11 @@ struct DashboardView: View {
                     
                     switch selectedStat {
                     case .steps:
-                        StepBarChart(chartData: ChartHelper.convert(data: hkManager.stepData))
-                        StepPieChart(chartData: ChartHelper.averageWeekdayCount(for: hkManager.stepData))
+                        StepBarChart(chartData: ChartHelper.convert(data: hkData.stepData))
+                        StepPieChart(chartData: ChartHelper.averageWeekdayCount(for: hkData.stepData))
                     case .weight:
-                        WeightLineChart(chartData: ChartHelper.convert(data: hkManager.weightData))
-                        WeightDiffBarChart(chartData: ChartHelper.averageDailyWeightDiffs(for: hkManager.weightDiffData))
+                        WeightLineChart(chartData: ChartHelper.convert(data: hkData.weightData))
+                        WeightDiffBarChart(chartData: ChartHelper.averageDailyWeightDiffs(for: hkData.weightDiffData))
                     }
                 }
             }
@@ -83,9 +84,9 @@ struct DashboardView: View {
                 async let weights = hkManager.fetchWeights(daysBack: 28)
                 async let weightsForDiffBarChart = hkManager.fetchWeights(daysBack: 29)
                 
-                hkManager.stepData = try await steps
-                hkManager.weightData = try await weights
-                hkManager.weightDiffData = try await weightsForDiffBarChart
+                hkData.stepData = try await steps
+                hkData.weightData = try await weights
+                hkData.weightDiffData = try await weightsForDiffBarChart
             } catch STError.authNotDetermined {
                 isShowingPermissionPrimingSheet = true
             } catch STError.noData {
