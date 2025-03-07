@@ -7,18 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910790682C771DC300690CEF /* ChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910790672C771DC300690CEF /* ChartContainer.swift */; };
+		9107BCFF2C75D646002ECC9E /* ChartEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107BCFE2C75D646002ECC9E /* ChartEmptyView.swift */; };
+		9115B46A2BFDD811008C567C /* StepBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9115B4692BFDD811008C567C /* StepBarChart.swift */; };
+		9147893B2BF464C800E3248F /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9147893A2BF464C800E3248F /* HealthMetric.swift */; };
+		914A7A6C2C5B2A8D00ABE393 /* ChartDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914A7A6B2C5B2A8D00ABE393 /* ChartDataTypes.swift */; };
+		914A7A6F2C5B2B5A00ABE393 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914A7A6E2C5B2B5A00ABE393 /* Date+Ext.swift */; };
+		914A7A722C5B302500ABE393 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 914A7A712C5B302500ABE393 /* Algorithms */; };
+		914A7A742C5E65BD00ABE393 /* StepPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914A7A732C5E65BD00ABE393 /* StepPieChart.swift */; };
+		914E517B2C787B16003D9846 /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E517A2C787B16003D9846 /* ChartHelper.swift */; };
+		914E517D2C78809F003D9846 /* ChartAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E517C2C78809F003D9846 /* ChartAnnotationView.swift */; };
+		914E517F2C7E8750003D9846 /* STError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E517E2C7E8750003D9846 /* STError.swift */; };
+		914E51812C7EA3A0003D9846 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E51802C7EA3A0003D9846 /* Array+Ext.swift */; };
+		9178C85E2BE37B4800ABC639 /* HealthKitPermissionPrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178C85D2BE37B4800ABC639 /* HealthKitPermissionPrimingView.swift */; };
+		9178C8612BE3824C00ABC639 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178C8602BE3824C00ABC639 /* HealthKitManager.swift */; };
+		9188E07E2BE2FAEF00DC964E /* HealthDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188E07D2BE2FAEF00DC964E /* HealthDataListView.swift */; };
 		919D03AC2BE24A97003E6E34 /* Step_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D03AB2BE24A97003E6E34 /* Step_TrackerApp.swift */; };
-		919D03AE2BE24A97003E6E34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D03AD2BE24A97003E6E34 /* ContentView.swift */; };
+		919D03AE2BE24A97003E6E34 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D03AD2BE24A97003E6E34 /* DashboardView.swift */; };
 		919D03B02BE24A99003E6E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919D03AF2BE24A99003E6E34 /* Assets.xcassets */; };
 		919D03B32BE24A99003E6E34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919D03B22BE24A99003E6E34 /* Preview Assets.xcassets */; };
+		91ADD3322C65F73000C0E943 /* WeightLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ADD3312C65F73000C0E943 /* WeightLineChart.swift */; };
+		91ADD3352C65F8AA00C0E943 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ADD3342C65F8AA00C0E943 /* MockData.swift */; };
+		91ADD3372C68752100C0E943 /* WeightDiffBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ADD3362C68752100C0E943 /* WeightDiffBarChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910790672C771DC300690CEF /* ChartContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContainer.swift; sourceTree = "<group>"; };
+		9107BCFE2C75D646002ECC9E /* ChartEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartEmptyView.swift; sourceTree = "<group>"; };
+		9115B4692BFDD811008C567C /* StepBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBarChart.swift; sourceTree = "<group>"; };
+		9147893A2BF464C800E3248F /* HealthMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetric.swift; sourceTree = "<group>"; };
+		914A7A6B2C5B2A8D00ABE393 /* ChartDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataTypes.swift; sourceTree = "<group>"; };
+		914A7A6E2C5B2B5A00ABE393 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		914A7A732C5E65BD00ABE393 /* StepPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPieChart.swift; sourceTree = "<group>"; };
+		914E517A2C787B16003D9846 /* ChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHelper.swift; sourceTree = "<group>"; };
+		914E517C2C78809F003D9846 /* ChartAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnnotationView.swift; sourceTree = "<group>"; };
+		914E517E2C7E8750003D9846 /* STError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STError.swift; sourceTree = "<group>"; };
+		914E51802C7EA3A0003D9846 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		9178C85D2BE37B4800ABC639 /* HealthKitPermissionPrimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitPermissionPrimingView.swift; sourceTree = "<group>"; };
+		9178C85F2BE3800200ABC639 /* Step Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Step Tracker.entitlements"; sourceTree = "<group>"; };
+		9178C8602BE3824C00ABC639 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		9188E07D2BE2FAEF00DC964E /* HealthDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataListView.swift; sourceTree = "<group>"; };
 		919D03A82BE24A97003E6E34 /* Step Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Step Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		919D03AB2BE24A97003E6E34 /* Step_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step_TrackerApp.swift; sourceTree = "<group>"; };
-		919D03AD2BE24A97003E6E34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		919D03AD2BE24A97003E6E34 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		919D03AF2BE24A99003E6E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		919D03B22BE24A99003E6E34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		91ADD3312C65F73000C0E943 /* WeightLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLineChart.swift; sourceTree = "<group>"; };
+		91ADD3342C65F8AA00C0E943 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		91ADD3362C68752100C0E943 /* WeightDiffBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDiffBarChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +62,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914A7A722C5B302500ABE393 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		914A7A652C573C6700ABE393 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9178C8602BE3824C00ABC639 /* HealthKitManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		914A7A662C573C7100ABE393 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9147893A2BF464C800E3248F /* HealthMetric.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		914A7A672C573C7B00ABE393 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				919D03AD2BE24A97003E6E34 /* DashboardView.swift */,
+				9188E07D2BE2FAEF00DC964E /* HealthDataListView.swift */,
+				9178C85D2BE37B4800ABC639 /* HealthKitPermissionPrimingView.swift */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		914A7A682C573C8900ABE393 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				91AA68AF2D77DD8C00C503A0 /* Charts */,
+				91AA68B32D77DDCB00C503A0 /* Chart Custom VIews */,
+				91AA68B22D77DDC500C503A0 /* Chart Utilities */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
+		914A7A6D2C5B2B5100ABE393 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				914A7A6E2C5B2B5A00ABE393 /* Date+Ext.swift */,
+				914E51802C7EA3A0003D9846 /* Array+Ext.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		919D039F2BE24A97003E6E34 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +133,13 @@
 		919D03AA2BE24A97003E6E34 /* Step Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				9178C85F2BE3800200ABC639 /* Step Tracker.entitlements */,
 				919D03AB2BE24A97003E6E34 /* Step_TrackerApp.swift */,
-				919D03AD2BE24A97003E6E34 /* ContentView.swift */,
+				91ADD3332C65F88A00C0E943 /* Utilities */,
+				914A7A652C573C6700ABE393 /* Managers */,
+				914A7A662C573C7100ABE393 /* Model */,
+				914A7A682C573C8900ABE393 /* Charts */,
+				914A7A672C573C7B00ABE393 /* Screens */,
 				919D03AF2BE24A99003E6E34 /* Assets.xcassets */,
 				919D03B12BE24A99003E6E34 /* Preview Content */,
 			);
@@ -65,6 +152,46 @@
 				919D03B22BE24A99003E6E34 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91AA68AF2D77DD8C00C503A0 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				9115B4692BFDD811008C567C /* StepBarChart.swift */,
+				914A7A732C5E65BD00ABE393 /* StepPieChart.swift */,
+				91ADD3312C65F73000C0E943 /* WeightLineChart.swift */,
+				91ADD3362C68752100C0E943 /* WeightDiffBarChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		91AA68B22D77DDC500C503A0 /* Chart Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				914A7A6B2C5B2A8D00ABE393 /* ChartDataTypes.swift */,
+				914E517A2C787B16003D9846 /* ChartHelper.swift */,
+			);
+			path = "Chart Utilities";
+			sourceTree = "<group>";
+		};
+		91AA68B32D77DDCB00C503A0 /* Chart Custom VIews */ = {
+			isa = PBXGroup;
+			children = (
+				9107BCFE2C75D646002ECC9E /* ChartEmptyView.swift */,
+				910790672C771DC300690CEF /* ChartContainer.swift */,
+				914E517C2C78809F003D9846 /* ChartAnnotationView.swift */,
+			);
+			path = "Chart Custom VIews";
+			sourceTree = "<group>";
+		};
+		91ADD3332C65F88A00C0E943 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				914A7A6D2C5B2B5100ABE393 /* Extensions */,
+				91ADD3342C65F8AA00C0E943 /* MockData.swift */,
+				914E517E2C7E8750003D9846 /* STError.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +210,9 @@
 			dependencies = (
 			);
 			name = "Step Tracker";
+			packageProductDependencies = (
+				914A7A712C5B302500ABE393 /* Algorithms */,
+			);
 			productName = "Step Tracker";
 			productReference = 919D03A82BE24A97003E6E34 /* Step Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +241,9 @@
 				Base,
 			);
 			mainGroup = 919D039F2BE24A97003E6E34;
+			packageReferences = (
+				914A7A702C5B302500ABE393 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 919D03A92BE24A97003E6E34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +270,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919D03AE2BE24A97003E6E34 /* ContentView.swift in Sources */,
+				9188E07E2BE2FAEF00DC964E /* HealthDataListView.swift in Sources */,
+				919D03AE2BE24A97003E6E34 /* DashboardView.swift in Sources */,
+				91ADD3372C68752100C0E943 /* WeightDiffBarChart.swift in Sources */,
+				9115B46A2BFDD811008C567C /* StepBarChart.swift in Sources */,
+				914E517D2C78809F003D9846 /* ChartAnnotationView.swift in Sources */,
+				910790682C771DC300690CEF /* ChartContainer.swift in Sources */,
+				91ADD3352C65F8AA00C0E943 /* MockData.swift in Sources */,
+				9107BCFF2C75D646002ECC9E /* ChartEmptyView.swift in Sources */,
 				919D03AC2BE24A97003E6E34 /* Step_TrackerApp.swift in Sources */,
+				914E517F2C7E8750003D9846 /* STError.swift in Sources */,
+				9178C8612BE3824C00ABC639 /* HealthKitManager.swift in Sources */,
+				9178C85E2BE37B4800ABC639 /* HealthKitPermissionPrimingView.swift in Sources */,
+				914E517B2C787B16003D9846 /* ChartHelper.swift in Sources */,
+				9147893B2BF464C800E3248F /* HealthMetric.swift in Sources */,
+				914A7A6C2C5B2A8D00ABE393 /* ChartDataTypes.swift in Sources */,
+				914A7A742C5E65BD00ABE393 /* StepPieChart.swift in Sources */,
+				914E51812C7EA3A0003D9846 /* Array+Ext.swift in Sources */,
+				91ADD3322C65F73000C0E943 /* WeightLineChart.swift in Sources */,
+				914A7A6F2C5B2B5A00ABE393 /* Date+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,22 +419,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Step Tracker/Step Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Step Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = J92SCDW5UB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app shows your stap and weight data in an interactive chart.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app allows you to add step and weight data to Apple Health.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "immmax.Step-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -298,22 +452,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Step Tracker/Step Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Step Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = J92SCDW5UB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app shows your stap and weight data in an interactive chart.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app allows you to add step and weight data to Apple Health.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "immmax.Step-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -344,6 +502,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		914A7A702C5B302500ABE393 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		914A7A712C5B302500ABE393 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 914A7A702C5B302500ABE393 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 919D03A02BE24A97003E6E34 /* Project object */;
 }
